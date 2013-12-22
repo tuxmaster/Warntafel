@@ -20,7 +20,8 @@ MOC_DIR=tmp/moc
 OBJECTS_DIR=tmp/obj
 
 HEADERS += \
-    Quellen/DlgHaupt.h
+    Quellen/DlgHaupt.h \
+    Quellen/Vorgaben.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
@@ -28,3 +29,5 @@ SOURCES += \
 
 FORMS += \
     Dialoge/Hauptfenster.ui
+
+TRANSLATIONS +=Übersetzungen/Warntafel_en.ts

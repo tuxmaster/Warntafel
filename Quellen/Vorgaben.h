@@ -14,20 +14,10 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
-#include <QtGui>
-#include "DlgHaupt.h"
-#include "Vorgaben.h"
 
-int main(int argc, char *argv[])
-{
-		QApplication Qt(argc, argv);
-		QTranslator QtUebersetzung;
-		QTranslator ProgrammUebersetzung;
-		QtUebersetzung.load(QString("qt_%1").arg(QLocale::system().name()),QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-		ProgrammUebersetzung.load(QString("%1_%2").arg(PROGRAMM).arg(QLocale::system().name()),QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-		Qt.installTranslator(&QtUebersetzung);
-		Qt.installTranslator(&ProgrammUebersetzung);
-		DlgHaupt Haupt;
-		Haupt.show();
-		return Qt.exec();
-}
+#ifndef VORGABEN_H
+#define VORGABEN_H
+
+#define PROGRAMM "Warntafel"
+
+#endif // VORGABEN_H
