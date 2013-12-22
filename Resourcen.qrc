@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Bilder">
+        <file>Bilder/Gefahrenklassen/1.svg</file>
+    </qresource>
+</RCC>

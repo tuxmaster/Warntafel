@@ -127,11 +127,17 @@
     <property name="text">
      <string>Gefahrzettel</string>
     </property>
+    <property name="icon">
+     <iconset resource="../Resourcen.qrc">
+      <normaloff>:/Bilder/Bilder/Gefahrenklassen/1.svg</normaloff>:/Bilder/Bilder/Gefahrenklassen/1.svg</iconset>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Resourcen.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>sfEnde</sender>

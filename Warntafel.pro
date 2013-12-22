@@ -18,6 +18,7 @@ TARGET = Warntafeln
 UI_DIR=tmp/ui
 MOC_DIR=tmp/moc
 OBJECTS_DIR=tmp/obj
+RCC_DIR=tmp/rcc
 
 HEADERS += \
     Quellen/DlgHaupt.h \
@@ -31,3 +32,6 @@ FORMS += \
     Dialoge/Hauptfenster.ui
 
 TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
+
+RESOURCES += \
+    Resourcen.qrc
