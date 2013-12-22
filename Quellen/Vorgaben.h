@@ -23,5 +23,6 @@
 #define GEFAHRENZETTEL "Gefahrenzettel.dat"
 #define GEFAHRENZETTELPFAD "./"
 #define GEFAHRENZETTELDB "DBGEFAHRENZETTEL"
+#define GEFAHRENZETTELSYMBOL "Gefahrenzettel.rcc"
 
 #endif // VORGABEN_H

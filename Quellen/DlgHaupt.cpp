@@ -30,7 +30,9 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
 		return;
 	}
-	tbGefahrenzettel->setModel(new ModellGefahrgutklasse(this));
+	ModellGefahrgutklasse *Modell=new ModellGefahrgutklasse(this);
+	connect(Modell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
+	tbGefahrenzettel->setModel(Modell);
 }
 void DlgHaupt::InDieMitte()
 {

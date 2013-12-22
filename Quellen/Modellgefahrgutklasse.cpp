@@ -24,15 +24,29 @@ ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableMod
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
 	DB.setDatabaseName(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
 	if(!DB.open())
-		Q_EMIT Fehler(trUtf8("Fehler beim Öffnen der Datenbank %1.\n%2").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL))
-																		.arg(DB.lastError().text()));
+	{
+		K_Hilfsfehlertext=trUtf8("Fehler beim Öffnen der Datenbank %1.\n%2").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL))
+																			.arg(DB.lastError().text());
+		QTimer::singleShot(0,this,SLOT(Hilfsfehler()));
+	}
 	else
 	{
+		if (!QResource::registerResource(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL)))
+		{
+			K_Hilfsfehlertext=tr("Konte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
+			QTimer::singleShot(0,this,SLOT(Hilfsfehler()));
+			return;
+		}
 		K_SQLDaten=new QSqlTableModel(this, DB);
 		K_SQLDaten->setTable("Zettel");
 		K_SQLDaten->select();
 	}
 }
+void ModellGefahrgutklasse::Hilfsfehler()
+{
+	Q_EMIT Fehler(K_Hilfsfehlertext);
+}
+
 int ModellGefahrgutklasse::rowCount(const QModelIndex &) const
 {
 	if(K_SQLDaten)

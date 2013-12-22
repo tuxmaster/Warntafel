@@ -34,8 +34,12 @@ class ModellGefahrgutklasse : public QAbstractTableModel
 	Q_SIGNALS:
 		void			Fehler(const QString &fehler) const;
 
+	private Q_SLOTS:
+		void			Hilfsfehler();
+
 	private:
 		QSqlTableModel*	K_SQLDaten;
+		QString			K_Hilfsfehlertext;
 
 
 };
