@@ -14,29 +14,24 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
-#ifndef DLGHAUPT_H
-#define DLGHAUPT_H
 
-#include "ui_Hauptfenster.h"
+#ifndef MODELLGEFAHRGUTKLASSE_H
+#define MODELLGEFAHRGUTKLASSE_H
 
-class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
+#include <QtCore>
+
+class ModellGefahrgutklasse : public QAbstractTableModel
 {
 		Q_OBJECT
 	public:
-		explicit	DlgHaupt(QWidget *eltern = 0);
+		explicit	ModellGefahrgutklasse(QObject *eltern = 0);
+		int			rowCount(const QModelIndex &eltern) const ;
+		int			columnCount(const QModelIndex &) const{return 3;}
+		QVariant	data(const QModelIndex &index, int rolle) const;
+		QVariant	headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const;
 
-	private Q_SLOTS:
-		void		on_sfInfo_clicked();
-		void		on_sfWarntafel_clicked();
-		void		on_sfGefahrzettel_clicked();
-		void		on_sfUeberQt_clicked();
-		void		on_sfUeberWarntafel_clicked();
 
-	private:
-		void		InDieMitte();
 
-	protected:
-		void		changeEvent(QEvent *e);
 };
 
-#endif // DLGHAUPT_H
+#endif // MODELLGEFAHRGUTKLASSE_H

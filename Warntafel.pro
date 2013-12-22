@@ -22,11 +22,13 @@ RCC_DIR=tmp/rcc
 
 HEADERS += \
     Quellen/DlgHaupt.h \
-    Quellen/Vorgaben.h
+    Quellen/Vorgaben.h \
+    Quellen/Modellgefahrgutklasse.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
-    Quellen/Start.cpp
+    Quellen/Start.cpp \
+    Quellen/Modellgefahrgutklasse.cpp
 
 FORMS += \
     Dialoge/Hauptfenster.ui

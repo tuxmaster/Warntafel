@@ -17,11 +17,13 @@
 #include "DlgHaupt.h"
 #include <QtGui>
 #include "Vorgaben.h"
+#include "Modellgefahrgutklasse.h"
 
 DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
 	setupUi(this);
 	InDieMitte();
+	tbGefahrenzettel->setModel(new ModellGefahrgutklasse(this));
 }
 void DlgHaupt::InDieMitte()
 {

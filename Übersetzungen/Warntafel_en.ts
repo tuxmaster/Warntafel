@@ -6,17 +6,17 @@
     <message utf8="true">
         <location filename="../Quellen/DlgHaupt.cpp" line="75"/>
         <source>Über Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>About Qt</translation>
     </message>
     <message utf8="true">
         <location filename="../Quellen/DlgHaupt.cpp" line="79"/>
         <source>Über %1</source>
-        <translation type="unfinished"></translation>
+        <translation>About %1</translation>
     </message>
     <message>
         <location filename="../Quellen/DlgHaupt.cpp" line="79"/>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -41,17 +41,17 @@
     <message utf8="true">
         <location filename="../Dialoge/Hauptfenster.ui" line="132"/>
         <source>Über Warntafel</source>
-        <translation type="unfinished"></translation>
+        <translation>About this application</translation>
     </message>
     <message utf8="true">
         <location filename="../Dialoge/Hauptfenster.ui" line="143"/>
         <source>Über Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>About Qt</translation>
     </message>
     <message>
         <location filename="../Dialoge/Hauptfenster.ui" line="50"/>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Information</translation>
     </message>
 </context>
 </TS>
