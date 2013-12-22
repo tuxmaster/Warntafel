@@ -1,19 +1,19 @@
 #include "Quellen/DlgHaupt.h"
 
-Hauptfenster::Hauptfenster(QWidget *parent) :
-	QMainWindow(parent)
+DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
 	setupUi(this);
 }
 
-void Hauptfenster::changeEvent(QEvent *e)
+void DlgHaupt::changeEvent(QEvent *e)
 {
 	QMainWindow::changeEvent(e);
-	switch (e->type()) {
+	switch (e->type())
+	{
 		case QEvent::LanguageChange:
-			retranslateUi(this);
-			break;
+				retranslateUi(this);
+				break;
 		default:
-			break;
+				break;
 	}
 }
