@@ -2,3 +2,4 @@ Hier entsteht das Programm was die Gefahrentafeln erklärt.
 Erstellen:
 qmake Warntafel.pro
 make -j4
+./GefahrenzettelErstellen.sh
