@@ -29,6 +29,7 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 		void	on_sfWarntafel_clicked();
 		void	on_sfGefahrzettel_clicked();
 		void	on_sfUeberQt_clicked();
+		void	on_sfUeberWarntafel_clicked();
 	private:
 		void	InDieMitte();
 

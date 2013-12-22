@@ -14,124 +14,187 @@
   <property name="windowTitle">
    <string>Warntafeln für Gefahrgut</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../Resourcen.qrc">
+    <normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QStackedWidget" name="StapelFunktionen">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>180</y>
-      <width>401</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="Warntafel">
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>60</y>
-        <width>241</width>
-        <height>91</height>
-       </rect>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="sfWarntafel">
+        <property name="text">
+         <string>Warntafel</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../Resourcen.qrc">
+          <normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="sfGefahrzettel">
+        <property name="text">
+         <string>Gefahrzettel</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../Resourcen.qrc">
+          <normaloff>:/Bilder/Bilder/Gefahrenklassen/1.svg</normaloff>:/Bilder/Bilder/Gefahrenklassen/1.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="sfInfo">
+        <property name="text">
+         <string>Info</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../Resourcen.qrc">
+          <normaloff>:/Bilder/Bilder/Sonstige/Info.svg</normaloff>:/Bilder/Bilder/Sonstige/Info.svg</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="StapelFunktionen">
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <property name="text">
-       <string>Warntafel</string>
+      <widget class="QWidget" name="Warntafel">
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>60</y>
+          <width>241</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Warntafel</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Gefahrzettel">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>70</y>
+          <width>66</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Gefahrzettel</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Infoseite">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QPushButton" name="sfUeberWarntafel">
+                <property name="text">
+                 <string>Über Warntafel</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../Resourcen.qrc">
+                  <normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="sfUeberQt">
+                <property name="text">
+                 <string>Über Qt</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../Resourcen.qrc">
+                  <normaloff>:/Bilder/Bilder/Sonstige/Qt.svg</normaloff>:/Bilder/Bilder/Sonstige/Qt.svg</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDialogButtonBox" name="sfEnde">
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Close</set>
+      </property>
+      <property name="centerButtons">
+       <bool>true</bool>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="Gefahrzettel">
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>70</y>
-        <width>66</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gefahrzettel</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="Infoseite">
-     <widget class="QPushButton" name="sfUeberQt">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>50</y>
-        <width>97</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Über Qt</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QDialogButtonBox" name="sfEnde">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>490</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="standardButtons">
-     <set>QDialogButtonBox::Close</set>
-    </property>
-    <property name="centerButtons">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sfInfo">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>40</y>
-      <width>97</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Info</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sfWarntafel">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>40</y>
-      <width>97</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Warntafel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sfGefahrzettel">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>40</y>
-      <width>97</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Gefahrzettel</string>
-    </property>
-    <property name="icon">
-     <iconset resource="../Resourcen.qrc">
-      <normaloff>:/Bilder/Bilder/Gefahrenklassen/1.svg</normaloff>:/Bilder/Bilder/Gefahrenklassen/1.svg</iconset>
-    </property>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

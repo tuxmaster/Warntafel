@@ -19,5 +19,6 @@
 #define VORGABEN_H
 
 #define PROGRAMM "Warntafel"
+#define VERSION "0.0.1"
 
 #endif // VORGABEN_H

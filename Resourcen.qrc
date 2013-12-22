@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/Bilder">
         <file>Bilder/Gefahrenklassen/1.svg</file>
+        <file>Bilder/Sonstige/Gefahrtafel.svg</file>
+        <file>Bilder/Sonstige/Info.svg</file>
+        <file>Bilder/Sonstige/Qt.svg</file>
     </qresource>
 </RCC>

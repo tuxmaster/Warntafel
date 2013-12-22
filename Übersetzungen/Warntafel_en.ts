@@ -4,8 +4,18 @@
 <context>
     <name>DlgHaupt</name>
     <message utf8="true">
-        <location filename="../Quellen/DlgHaupt.cpp" line="74"/>
+        <location filename="../Quellen/DlgHaupt.cpp" line="75"/>
         <source>Über Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../Quellen/DlgHaupt.cpp" line="79"/>
+        <source>Über %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Quellen/DlgHaupt.cpp" line="79"/>
+        <source>Version: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -17,24 +27,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/Hauptfenster.ui" line="41"/>
-        <location filename="../Dialoge/Hauptfenster.ui" line="115"/>
+        <location filename="../Dialoge/Hauptfenster.ui" line="28"/>
+        <location filename="../Dialoge/Hauptfenster.ui" line="76"/>
         <source>Warntafel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/Hauptfenster.ui" line="56"/>
-        <location filename="../Dialoge/Hauptfenster.ui" line="128"/>
+        <location filename="../Dialoge/Hauptfenster.ui" line="39"/>
+        <location filename="../Dialoge/Hauptfenster.ui" line="91"/>
         <source>Gefahrzettel</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../Dialoge/Hauptfenster.ui" line="71"/>
+        <location filename="../Dialoge/Hauptfenster.ui" line="132"/>
+        <source>Über Warntafel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../Dialoge/Hauptfenster.ui" line="143"/>
         <source>Über Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Dialoge/Hauptfenster.ui" line="102"/>
+        <location filename="../Dialoge/Hauptfenster.ui" line="50"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>

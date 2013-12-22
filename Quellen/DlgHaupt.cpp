@@ -14,8 +14,9 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
-#include "Quellen/DlgHaupt.h"
+#include "DlgHaupt.h"
 #include <QtGui>
+#include "Vorgaben.h"
 
 DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
@@ -72,4 +73,8 @@ void DlgHaupt::on_sfGefahrzettel_clicked()
 void DlgHaupt::on_sfUeberQt_clicked()
 {
 	QMessageBox::aboutQt(this,trUtf8("Über Qt"));
+}
+void DlgHaupt::on_sfUeberWarntafel_clicked()
+{
+	QMessageBox::information(this,trUtf8("Über %1").arg(PROGRAMM),tr("Version: %1").arg(VERSION));
 }
