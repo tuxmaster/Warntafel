@@ -35,6 +35,9 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 	private:
 		void		InDieMitte();
 
+	private Q_SLOTS:
+		void		Fehler(const QString &fehler);
+
 	protected:
 		void		changeEvent(QEvent *e);
 };

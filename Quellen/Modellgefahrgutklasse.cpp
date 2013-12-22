@@ -16,16 +16,38 @@
 */
 
 #include "Modellgefahrgutklasse.h"
+#include "Vorgaben.h"
+#include "QtSql"
 
 ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableModel(eltern)
 {
+	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
+	DB.setDatabaseName(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
+	if(!DB.open())
+		Q_EMIT Fehler(trUtf8("Fehler beim Öffnen der Datenbank %1.\n%2").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL))
+																		.arg(DB.lastError().text()));
+	else
+	{
+		K_SQLDaten=new QSqlTableModel(this, DB);
+		K_SQLDaten->setTable("Zettel");
+		K_SQLDaten->select();
+	}
 }
-int ModellGefahrgutklasse::rowCount(const QModelIndex &eltern) const
+int ModellGefahrgutklasse::rowCount(const QModelIndex &) const
 {
-	return 1;
+	if(K_SQLDaten)
+		return K_SQLDaten->rowCount();
+	return 0;
 }
 QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 {
+	if((index.column()==0) && (rolle==Qt::DisplayRole))
+	{
+		//Symbol anzeige
+		return QString("kommt noch");
+	}
+	else if(rolle==Qt::DisplayRole)
+		return K_SQLDaten->data(index);
 	return QVariant();
 }
 QVariant ModellGefahrgutklasse::headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const

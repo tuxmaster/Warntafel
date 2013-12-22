@@ -20,16 +20,22 @@
 
 #include <QtCore>
 
+class QSqlTableModel;
 class ModellGefahrgutklasse : public QAbstractTableModel
 {
 		Q_OBJECT
 	public:
-		explicit	ModellGefahrgutklasse(QObject *eltern = 0);
-		int			rowCount(const QModelIndex &eltern) const ;
-		int			columnCount(const QModelIndex &) const{return 3;}
-		QVariant	data(const QModelIndex &index, int rolle) const;
-		QVariant	headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const;
+		explicit		ModellGefahrgutklasse(QObject *eltern = 0);
+		int				rowCount(const QModelIndex &) const ;
+		int				columnCount(const QModelIndex &) const{return 3;}
+		QVariant		data(const QModelIndex &index, int rolle) const;
+		QVariant		headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const;
 
+	Q_SIGNALS:
+		void			Fehler(const QString &fehler) const;
+
+	private:
+		QSqlTableModel*	K_SQLDaten;
 
 
 };

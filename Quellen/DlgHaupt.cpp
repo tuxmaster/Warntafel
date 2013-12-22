@@ -16,6 +16,7 @@
 */
 #include "DlgHaupt.h"
 #include <QtGui>
+#include <QtSql>
 #include "Vorgaben.h"
 #include "Modellgefahrgutklasse.h"
 
@@ -23,6 +24,12 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
 	setupUi(this);
 	InDieMitte();
+	// Wenn kein SQlite da ist, braucht man nicht weitermachen
+	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
+	{
+		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
+		return;
+	}
 	tbGefahrenzettel->setModel(new ModellGefahrgutklasse(this));
 }
 void DlgHaupt::InDieMitte()
@@ -59,6 +66,12 @@ void DlgHaupt::changeEvent(QEvent *e)
 				break;
 	}
 }
+void DlgHaupt::Fehler(const QString &fehler)
+{
+	QMessageBox::critical(this,tr("Fehler"),fehler);
+	exit(-1);
+}
+
 void DlgHaupt::on_sfInfo_clicked()
 {
 	StapelFunktionen->setCurrentWidget(Infoseite);

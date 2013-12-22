@@ -20,5 +20,8 @@
 
 #define PROGRAMM "Warntafel"
 #define VERSION "0.0.1"
+#define GEFAHRENZETTEL "Gefahrenzettel.dat"
+#define GEFAHRENZETTELPFAD "./"
+#define GEFAHRENZETTELDB "DBGEFAHRENZETTEL"
 
 #endif // VORGABEN_H
