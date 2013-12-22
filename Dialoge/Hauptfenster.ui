@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>Frank Büttner</author>
  <class>Hauptfenster</class>
  <widget class="QMainWindow" name="Hauptfenster">
   <property name="geometry">
@@ -13,19 +14,140 @@
   <property name="windowTitle">
    <string>Warntafeln für Gefahrgut</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>27</height>
-    </rect>
-   </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="StapelFunktionen">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>180</y>
+      <width>401</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="Warntafel">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>60</y>
+        <width>241</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Warntafel</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Gefahrzettel">
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>70</y>
+        <width>66</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gefahrzettel</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Infoseite">
+     <widget class="QPushButton" name="sfUeberQt">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>50</y>
+        <width>97</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Über Qt</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QDialogButtonBox" name="sfEnde">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>490</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="standardButtons">
+     <set>QDialogButtonBox::Close</set>
+    </property>
+    <property name="centerButtons">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sfInfo">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>40</y>
+      <width>97</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Info</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sfWarntafel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>40</y>
+      <width>97</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Warntafel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sfGefahrzettel">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>40</y>
+      <width>97</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gefahrzettel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>sfEnde</sender>
+   <signal>rejected()</signal>
+   <receiver>Hauptfenster</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>505</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
