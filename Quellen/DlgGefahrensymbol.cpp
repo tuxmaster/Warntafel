@@ -22,8 +22,8 @@
 DlgGefahrensymbol::DlgGefahrensymbol(QWidget *eltern) :	QDialog(eltern)
 {
 	setupUi(this);
-	QVBoxLayout *Ansicht=new QVBoxLayout(this);
-	K_Symbolanzeige=new QSvgWidget(Symbolrahmen);
+	QVBoxLayout *Ansicht=new QVBoxLayout(Symbolrahmen);
+	K_Symbolanzeige=new QSvgWidget(this);
 	Ansicht->addWidget(K_Symbolanzeige);
 	Symbolrahmen->setLayout(Ansicht);
 }
