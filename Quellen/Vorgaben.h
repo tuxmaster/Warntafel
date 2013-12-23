@@ -20,9 +20,12 @@
 
 #define PROGRAMM "Warntafel"
 #define VERSION "0.0.1"
+#define BILDPUFFER_KB 102400
+
 #define GEFAHRENZETTEL "Gefahrenzettel.dat"
 #define GEFAHRENZETTELPFAD "./"
 #define GEFAHRENZETTELDB "DBGEFAHRENZETTEL"
 #define GEFAHRENZETTELSYMBOL "Gefahrenzettel.rcc"
+
 
 #endif // VORGABEN_H

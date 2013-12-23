@@ -21,6 +21,7 @@
 int main(int argc, char *argv[])
 {
 		QApplication Qt(argc, argv);
+		QPixmapCache::setCacheLimit(BILDPUFFER_KB);
 		QTranslator QtUebersetzung;
 		QTranslator ProgrammUebersetzung;
 		QtUebersetzung.load(QString("qt_%1").arg(QLocale::system().name()),QLibraryInfo::location(QLibraryInfo::TranslationsPath));

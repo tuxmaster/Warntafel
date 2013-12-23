@@ -18,6 +18,7 @@
 #include "Modellgefahrgutklasse.h"
 #include "Vorgaben.h"
 #include "QtSql"
+#include "QtGui"
 
 ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableModel(eltern)
 {
@@ -70,8 +71,13 @@ QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 					return QVariant();
 				else
 				{
-					QPixmap Symbol(K_SQLDaten->data(index).toString());
-					Symbol=Symbol.scaled(50,50,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+					QPixmap Symbol;
+					if (!QPixmapCache::find(K_SQLDaten->data(index).toString(),&Symbol))
+					{
+						Symbol.load(K_SQLDaten->data(index).toString());
+						Symbol=Symbol.scaled(50,50,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+						QPixmapCache::insert(K_SQLDaten->data(index).toString(),Symbol);
+					}
 					return Symbol;
 				}
 				break;

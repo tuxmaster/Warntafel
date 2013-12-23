@@ -21,6 +21,7 @@
 #include <QtCore>
 
 class QSqlTableModel;
+
 class ModellGefahrgutklasse : public QAbstractTableModel
 {
 		Q_OBJECT
@@ -41,6 +42,7 @@ class ModellGefahrgutklasse : public QAbstractTableModel
 	private:
 		QSqlTableModel*	K_SQLDaten;
 		QString			K_Hilfsfehlertext;
+
 
 };
 
