@@ -17,6 +17,8 @@
         <file alias="7C.svg">Bilder/Gefahrenklassen/7C.svg</file>
         <file alias="7E.svg">Bilder/Gefahrenklassen/7E.svg</file>
         <file alias="8.svg">Bilder/Gefahrenklassen/8.svg</file>
-        <file>Bilder/Gefahrenklassen/9.svg</file>
+        <file alias="9.svg">Bilder/Gefahrenklassen/9.svg</file>
+        <file alias="Umwelt.svg">Bilder/Gefahrenklassen/Umwelt.svg</file>
+        <file alias="Heiß.svg">Bilder/Gefahrenklassen/Heiß.svg</file>
     </qresource>
 </RCC>
