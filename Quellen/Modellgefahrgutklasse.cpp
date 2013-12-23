@@ -22,6 +22,7 @@
 ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableModel(eltern)
 {
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
+	K_SQLDaten=0;
 	DB.setDatabaseName(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
 	if(!DB.open())
 	{
@@ -33,7 +34,7 @@ ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableMod
 	{
 		if (!QResource::registerResource(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL)))
 		{
-			K_Hilfsfehlertext=tr("Konte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
+			K_Hilfsfehlertext=tr("Konte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL));
 			QTimer::singleShot(0,this,SLOT(Hilfsfehler()));
 			return;
 		}
