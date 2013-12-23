@@ -10,7 +10,7 @@ sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/3.svg','3','flüssig
 sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/4.1.svg','4.1','feste Stoffe (entzündbar)','5');"
 sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/4.2.svg','4.2','selbstentzündlche Stoffe','6');"
 sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/4.3.svg','4.3','bildet mit Wasser entzündlcihe Gase','7');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/5.1.svg','5.1','brandflördernt','8');"
+sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/5.1.svg','5.1','brandfördernt','8');"
 sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/5.2.svg','5.2','organische Peroxide','9');"
 sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/6.1.svg','6.1','giftig','10');"
 sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/6.2.svg','6.2','biologisch anteckend','11');"

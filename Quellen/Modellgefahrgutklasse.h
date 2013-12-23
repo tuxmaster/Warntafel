@@ -41,7 +41,6 @@ class ModellGefahrgutklasse : public QAbstractTableModel
 		QSqlTableModel*	K_SQLDaten;
 		QString			K_Hilfsfehlertext;
 
-
 };
 
 #endif // MODELLGEFAHRGUTKLASSE_H

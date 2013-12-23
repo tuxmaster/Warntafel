@@ -33,6 +33,7 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	ModellGefahrgutklasse *Modell=new ModellGefahrgutklasse(this);
 	connect(Modell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(Modell);
+	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 }
 void DlgHaupt::InDieMitte()
 {

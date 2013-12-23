@@ -61,8 +61,25 @@ QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 		//Symbol anzeige
 		return QString("kommt noch");
 	}
-	else if(rolle==Qt::DisplayRole)
-		return K_SQLDaten->data(index);
+	else
+	{
+		switch(rolle)
+		{
+			case Qt::TextAlignmentRole:
+					// Die Klassennummer soll zentiert sein.
+					if(index.column()==1)
+						return Qt::AlignCenter;
+					else
+						return QVariant();
+					break;
+			case Qt::DisplayRole:
+					return K_SQLDaten->data(index);
+					break;
+			default:
+				return QVariant();
+					break;
+		}
+	}
 	return QVariant();
 }
 QVariant ModellGefahrgutklasse::headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const
