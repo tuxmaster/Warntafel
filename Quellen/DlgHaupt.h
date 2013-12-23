@@ -19,6 +19,7 @@
 
 #include "ui_Hauptfenster.h"
 
+class ModellGefahrgutklasse;
 class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 {
 		Q_OBJECT
@@ -26,21 +27,22 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 		explicit	DlgHaupt(QWidget *eltern = 0);
 
 	private Q_SLOTS:
-		void		on_sfInfo_clicked();
-		void		on_sfWarntafel_clicked();
-		void		on_sfGefahrzettel_clicked();
-		void		on_sfUeberQt_clicked();
-		void		on_sfUeberWarntafel_clicked();
+		void					on_sfInfo_clicked();
+		void					on_sfWarntafel_clicked();
+		void					on_sfGefahrzettel_clicked();
+		void					on_sfUeberQt_clicked();
+		void					on_sfUeberWarntafel_clicked();
 
 	private:
-		void		InDieMitte();
+		void					InDieMitte();
+		ModellGefahrgutklasse	*K_Gefahrgutklassemodell;
 
 	private Q_SLOTS:
-		void		Fehler(const QString &fehler);
-		void		GefahrenzettelSymbolAnzeige(const QModelIndex &welches);
+		void					Fehler(const QString &fehler);
+		void					GefahrenzettelSymbolAnzeige(const QModelIndex &welches);
 
 	protected:
-		void		changeEvent(QEvent *e);
+		void					changeEvent(QEvent *e);
 };
 
 #endif // DLGHAUPT_H

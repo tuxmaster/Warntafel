@@ -109,3 +109,9 @@ QVariant ModellGefahrgutklasse::headerData(int bereich, Qt::Orientation ausricht
 	}
 	return Spaltenname;
 }
+QString ModellGefahrgutklasse::Symbolpfad(const QModelIndex &welches) const
+{
+	if (!K_SQLDaten)
+		return QString();
+	return K_SQLDaten->data(welches.sibling(welches.row(),0)).toString();
+}

@@ -30,10 +30,9 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
 		return;
 	}
-	ModellGefahrgutklasse *Modell=new ModellGefahrgutklasse(this);
-	connect(Modell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
-	tbGefahrenzettel->setModel(Modell);
-	tbGefahrenzettel->hideColumn(3);
+	K_Gefahrgutklassemodell=new ModellGefahrgutklasse(this);
+	connect(K_Gefahrgutklassemodell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
+	tbGefahrenzettel->setModel(K_Gefahrgutklassemodell);
 	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 	tbGefahrenzettel->horizontalHeader()->setStretchLastSection(true);
 	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
@@ -106,5 +105,5 @@ void DlgHaupt::GefahrenzettelSymbolAnzeige(const QModelIndex &welches)
 	if(welches.column()!=0)
 		return;
 	else
-		qDebug()<<welches.sibling(welches.row(),3).data();
+		qDebug()<<K_Gefahrgutklassemodell->Symbolpfad(welches);
 }
