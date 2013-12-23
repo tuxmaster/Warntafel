@@ -27,7 +27,7 @@ class ModellGefahrgutklasse : public QAbstractTableModel
 	public:
 		explicit		ModellGefahrgutklasse(QObject *eltern = 0);
 		int				rowCount(const QModelIndex &) const ;
-		int				columnCount(const QModelIndex &) const{return 3;}
+		int				columnCount(const QModelIndex &) const{return 4;}
 		QVariant		data(const QModelIndex &index, int rolle) const;
 		QVariant		headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const;
 

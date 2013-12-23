@@ -33,9 +33,11 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	ModellGefahrgutklasse *Modell=new ModellGefahrgutklasse(this);
 	connect(Modell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(Modell);
+	tbGefahrenzettel->hideColumn(3);
 	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 	tbGefahrenzettel->horizontalHeader()->setStretchLastSection(true);
 	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+	connect(tbGefahrenzettel,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(GefahrenzettelSymbolAnzeige(QModelIndex)));
 }
 void DlgHaupt::InDieMitte()
 {
@@ -97,4 +99,12 @@ void DlgHaupt::on_sfUeberQt_clicked()
 void DlgHaupt::on_sfUeberWarntafel_clicked()
 {
 	QMessageBox::information(this,trUtf8("Über %1").arg(PROGRAMM),tr("Version: %1").arg(VERSION));
+}
+void DlgHaupt::GefahrenzettelSymbolAnzeige(const QModelIndex &welches)
+{
+	//Nur die erste Spalte zählt:)
+	if(welches.column()!=0)
+		return;
+	else
+		qDebug()<<welches.sibling(welches.row(),3).data();
 }
