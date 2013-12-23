@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2211"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   width="432"
+   height="432"
+   version="1.0"
+   sodipodi:docbase="C:\Documents and Settings\Owner\Desktop\SVG\Downloaded Free Use"
+   sodipodi:docname="Dangclass6_2.png.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata2216">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2214" />
+  <sodipodi:namedview
+     inkscape:window-height="838"
+     inkscape:window-width="798"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="1.2979786"
+     inkscape:cx="225.59313"
+     inkscape:cy="268.8112"
+     inkscape:window-x="142"
+     inkscape:window-y="-10"
+     inkscape:current-layer="svg2211" />
+  <path
+     style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 1.073514,215.27401 L 216.24879,431.84467 L 431.37205,215.35419 L 215.97113,0.0052700421 L 1.073514,215.27401 z "
+     id="Outer Diamond"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 28.306212,217.16985 L 216.51648,403.69379 L 405.44517,215.70917 L 216.23882,28.09569 L 28.306212,217.16985 z "
+     id="Inner Diamond"
+     sodipodi:nodetypes="ccccc" />
+  <g
+     style="fill:#000000;stroke:none"
+     id="Hazmat Symbol"
+     transform="matrix(0.5631128,0,0,0.5631128,450.88663,-78.693221)">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14827491;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -421.9375,249.1875 C -455.19125,252.16619 -481.3125,280.10179 -481.3125,314.125 C -481.3125,345.11953 -459.6538,371.08454 -430.65625,377.71875 C -430.74609,377.06114 -430.8125,376.4009 -430.8125,375.71875 C -430.81249,368.68978 -425.86851,362.81568 -419.28125,361.34375 L -419.28125,355.03125 C -444.98501,353.3654 -465.34375,331.96611 -465.34375,305.84375 C -465.34374,280.62754 -446.37369,259.81585 -421.9375,256.90625 L -421.9375,249.1875 z M -410.1875,249.1875 L -410.1875,256.90625 C -385.75131,259.81584 -366.78125,280.62753 -366.78125,305.84375 C -366.78126,331.96612 -387.13999,353.3654 -412.84375,355.03125 L -412.84375,361.34375 C -406.25649,362.81568 -401.34375,368.68978 -401.34375,375.71875 C -401.34375,376.3998 -401.37919,377.06215 -401.46875,377.71875 C -372.48449,371.07952 -350.84374,345.11467 -350.84375,314.125 C -350.84375,280.10181 -376.93684,252.16619 -410.1875,249.1875 z M -416.0625,306.9375 C -430.92471,306.9375 -444.68714,311.66283 -455.9375,319.6875 C -454.64465,323.41288 -452.81847,326.89304 -450.59375,330.0625 C -440.99101,322.78672 -429.0304,318.46875 -416.0625,318.46875 C -403.09345,318.46876 -391.13442,322.78555 -381.53125,330.0625 C -379.31378,326.89699 -377.50959,323.40707 -376.21875,319.6875 C -387.46729,311.66711 -401.20464,306.93751 -416.0625,306.9375 z "
+       id="path2002" />
+    <path
+       id="path2004"
+       d="M -522.73985,444.09977 C -503.53335,471.40901 -466.2798,480.06286 -436.81485,463.05126 C -409.97281,447.55399 -398.31581,415.81451 -407.06919,387.3848 C -407.59378,387.79141 -408.13236,388.17905 -408.72312,388.52012 C -414.81039,392.0346 -422.3695,390.69004 -426.93785,385.72127 L -432.40464,388.87752 C -420.99542,411.97054 -429.34837,440.30137 -451.97099,453.36255 C -473.80886,465.97064 -501.31733,459.94795 -516.05521,440.2404 L -522.73985,444.09977 z M -528.61485,433.92398 L -521.93021,430.0646 C -531.62853,407.44746 -523.09012,380.61307 -501.25224,368.00496 C -478.62961,354.94378 -449.91793,361.87531 -435.62339,383.30248 L -430.1566,380.14623 C -432.17551,373.70554 -429.54476,366.51393 -423.45749,362.99945 C -422.86769,362.65892 -422.27636,362.35844 -421.66294,362.1077 C -441.90481,340.32622 -475.2114,334.56721 -502.04922,350.06206 C -531.51415,367.07365 -542.66056,403.63873 -528.61485,433.92398 z M -475.6644,410.13688 C -468.2333,423.00792 -457.25983,432.56387 -444.68508,438.29462 C -442.10524,435.31229 -440.00442,431.9907 -438.37195,428.4793 C -449.47433,423.80098 -459.1941,415.60178 -465.67805,404.37125 C -472.16257,393.13973 -474.40363,380.62451 -472.9032,368.66945 C -476.75334,368.33182 -480.6778,368.51431 -484.54446,369.25619 C -485.86605,383.0079 -483.09332,397.26959 -475.6644,410.13688 z "
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14827487;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14827487;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -303.55075,434.00543 C -289.5035,403.7175 -300.6358,367.12805 -330.10075,350.11644 C -356.94279,334.61918 -390.25849,340.39365 -410.50266,362.18915 C -409.88823,362.44015 -409.28324,362.71275 -408.69248,363.05383 C -402.60522,366.56832 -399.99009,373.78698 -402.009,380.22768 L -396.54221,383.38393 C -382.24767,361.95676 -353.53598,355.02522 -330.91336,368.0864 C -309.0755,380.69452 -300.53708,407.5289 -310.23539,430.14605 L -303.55075,434.00543 z M -309.42575,444.18122 L -316.11039,440.32185 C -330.84826,460.0294 -358.35673,466.0521 -380.19461,453.44399 C -402.81723,440.3828 -411.17018,412.05199 -399.76096,388.95897 L -405.22775,385.80272 C -409.7961,390.77148 -417.33959,392.08899 -423.42686,388.5745 C -424.01666,388.23398 -424.57255,387.87211 -425.09641,387.46625 C -433.8388,415.88696 -422.17296,447.61082 -395.33513,463.10564 C -365.8702,480.11724 -328.6307,471.48778 -309.42575,444.18122 z M -356.5012,410.21832 C -349.07009,397.34728 -346.28113,383.066 -347.60552,369.31058 C -351.47821,368.56753 -355.40521,368.40896 -359.2624,368.7509 C -357.76276,380.705 -360.0036,393.22217 -366.48755,404.4527 C -372.97208,415.68421 -382.69005,423.88264 -393.79365,428.56075 C -392.16098,432.06389 -390.04071,435.37132 -387.46489,438.34901 C -374.89476,432.61769 -363.93014,423.0856 -356.5012,410.21832 z "
+       id="path2006" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:24.42812729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial"
+     x="106.73772"
+     y="198.74315"
+     id="text7576"
+     sodipodi:linespacing="100%"
+     transform="scale(0.84313,1.1860567)"><tspan
+       sodipodi:role="line"
+       id="tspan7578"
+       x="106.73772"
+       y="198.74315"><tspan
+         x="106.73772"
+         y="198.74315"
+         id="tspan7580">INFECTIOUS SUBSTANCE</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Arial"
+     x="384.43243"
+     y="142.78886"
+     id="UN Class 6"
+     sodipodi:linespacing="100%"
+     transform="matrix(0.7413094,0.7702821,-0.6739868,0.6486361,0,0)"><tspan
+       sodipodi:role="line"
+       id="tspan7584"
+       x="384.43243"
+       y="142.78886"><tspan
+         x="384.43243"
+         y="142.78886"
+         id="tspan7586">UN CLASS 6</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial"
+     x="131.46346"
+     y="259.47971"
+     id="In Case of"
+     sodipodi:linespacing="100%"><tspan
+       sodipodi:role="line"
+       id="tspan7590"
+       x="131.46346"
+       y="259.47971"><tspan
+         x="131.46346"
+         y="259.47971"
+         id="tspan7592"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">IN CASE OF DAMAGE OR LEAKAGE</tspan><tspan
+         dx="0"
+         x="311.49899"
+         y="259.47971"
+         id="tspan7594"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></tspan><tspan
+       sodipodi:role="line"
+       id="tspan7596"
+       x="164.70732"
+       y="270.06152"><tspan
+         x="164.70732"
+         y="270.06152"
+         id="tspan7598"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">IMMEDIATELY NOTIFY</tspan><tspan
+         dx="0"
+         x="278.25516"
+         y="270.06152"
+         id="tspan7600"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></tspan><tspan
+       sodipodi:role="line"
+       id="tspan7602"
+       x="147.93556"
+       y="280.64334"><tspan
+         x="147.93556"
+         y="280.64334"
+         id="tspan7604"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">PUBLIC HEALTH AUTHORITY</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:56.67733765px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial"
+     x="200.7794"
+     y="385.61646"
+     id="6"
+     sodipodi:linespacing="100%"
+     transform="scale(0.9955493,1.0044705)"><tspan
+       sodipodi:role="line"
+       id="tspan7608"
+       x="200.7794"
+       y="385.61646">6<tspan
+   x="200.7794"
+   y="385.61646"
+   id="tspan7610"
+   style="font-size:56.67733765px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial"
+     x="189.41663"
+     y="327.68088"
+     id="In USA"
+     sodipodi:linespacing="100%"
+     transform="scale(1.069053,0.9354073)"><tspan
+       sodipodi:role="line"
+       id="tspan7614"
+       x="189.41663"
+       y="327.68088"><tspan
+         x="189.41663"
+         y="327.68088"
+         id="tspan7616"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">IN USA</tspan><tspan
+         dx="0"
+         x="216.10413"
+         y="327.68088"
+         id="tspan7618"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></tspan><tspan
+       sodipodi:role="line"
+       id="tspan7620"
+       x="153.85413"
+       y="335.68088"><tspan
+         x="153.85413"
+         y="335.68088"
+         id="tspan7622"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">NOTIFY DIRECTOR - CDC</tspan><tspan
+         dx="0"
+         x="251.66661"
+         y="335.68088"
+         id="tspan7624"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></tspan><tspan
+       sodipodi:role="line"
+       id="tspan7626"
+       x="176.73694"
+       y="343.68088"><tspan
+         x="176.73694"
+         y="343.68088"
+         id="tspan7628"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">ATLANTA, GA</tspan><tspan
+         dx="0"
+         x="228.78381"
+         y="343.68088"
+         id="tspan7630"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial" /></tspan><tspan
+       sodipodi:role="line"
+       id="tspan7632"
+       x="178.04944"
+       y="351.68088"><tspan
+         x="178.04944"
+         y="351.68088"
+         id="tspan7634"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Arial">404/633-5313</tspan></tspan></text>
+</svg>

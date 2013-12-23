@@ -1,1 +1,22 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/Gefahrenklasse">
+        <file alias="1.svg">Bilder/Gefahrenklassen/1.svg</file>
+        <file alias="2.1.svg">Bilder/Gefahrenklassen/2.1.svg</file>
+        <file alias="2.2.svg">Bilder/Gefahrenklassen/2.2.svg</file>
+        <file alias="2.3.svg">Bilder/Gefahrenklassen/2.3.svg</file>
+        <file alias="3.svg">Bilder/Gefahrenklassen/3.svg</file>
+        <file alias="4.1.svg">Bilder/Gefahrenklassen/4.1.svg</file>
+        <file alias="4.2.svg">Bilder/Gefahrenklassen/4.2.svg</file>
+        <file alias="4.3.svg">Bilder/Gefahrenklassen/4.3.svg</file>
+        <file alias="5.1.svg">Bilder/Gefahrenklassen/5.1.svg</file>
+        <file alias="5.2.svg">Bilder/Gefahrenklassen/5.2.svg</file>
+        <file alias="6.1.svg">Bilder/Gefahrenklassen/6.1.svg</file>
+        <file alias="6.2.svg">Bilder/Gefahrenklassen/6.2.svg</file>
+        <file alias="7A.svg">Bilder/Gefahrenklassen/7A.svg</file>
+        <file alias="7B.svg">Bilder/Gefahrenklassen/7B.svg</file>
+        <file alias="7C.svg">Bilder/Gefahrenklassen/7C.svg</file>
+        <file alias="7E.svg">Bilder/Gefahrenklassen/7E.svg</file>
+        <file alias="8.svg">Bilder/Gefahrenklassen/8.svg</file>
+        <file>Bilder/Gefahrenklassen/9.svg</file>
+    </qresource>
+</RCC>
