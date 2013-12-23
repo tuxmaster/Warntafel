@@ -17,10 +17,15 @@
 
 #include "DlgGefahrensymbol.h"
 #include <QtGui>
+#include <QtSvg>
 
 DlgGefahrensymbol::DlgGefahrensymbol(QWidget *eltern) :	QDialog(eltern)
 {
 	setupUi(this);
+	QVBoxLayout *Ansicht=new QVBoxLayout(this);
+	K_Symbolanzeige=new QSvgWidget(Symbolrahmen);
+	Ansicht->addWidget(K_Symbolanzeige);
+	Symbolrahmen->setLayout(Ansicht);
 }
 
 void DlgGefahrensymbol::changeEvent(QEvent *e)
@@ -37,7 +42,5 @@ void DlgGefahrensymbol::changeEvent(QEvent *e)
 }
 void DlgGefahrensymbol::SymbolSetzen(const QString &dateiname)
 {
-	QPixmap Bild(dateiname);
-	Bild=Bild.scaled(QApplication::desktop()->height()/2,1,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
-	Symbol->setPixmap(Bild);
+	K_Symbolanzeige->load(dateiname);
 }

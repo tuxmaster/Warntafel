@@ -19,7 +19,7 @@
 #define DLGGEFAHRENSYMBOL_H
 
 #include "ui_Gefahrensymbol.h"
-
+class QSvgWidget;
 class DlgGefahrensymbol : public QDialog, private Ui::DlgGefahrensymbol
 {
 		Q_OBJECT
@@ -27,6 +27,9 @@ class DlgGefahrensymbol : public QDialog, private Ui::DlgGefahrensymbol
 	public:
 		explicit	DlgGefahrensymbol(QWidget *eltern = 0);
 		void		SymbolSetzen(const QString &dateiname);
+
+	private:
+		QSvgWidget	*K_Symbolanzeige;
 
 	protected:
 		void		changeEvent(QEvent *e);

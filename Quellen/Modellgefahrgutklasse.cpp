@@ -81,6 +81,9 @@ QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 				else
 					return QVariant();
 				break;
+		case Qt::ToolTipRole:
+				return trUtf8("Auf das Symbol doppelt klicken um es zu vergrößern.");
+				break;
 		default:
 			return QVariant();
 				break;
