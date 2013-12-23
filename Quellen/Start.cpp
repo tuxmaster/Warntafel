@@ -18,29 +18,8 @@
 #include "DlgHaupt.h"
 #include "Vorgaben.h"
 
-#ifdef KEINE_WARNUNG
-void Meldungsverwaltung(QtMsgType art,const char *meldung)
-{
-	switch (art)
-	{
-		case QtWarningMsg:
-			 break;
-		default:
-
-			 break;
-	}
-}
-#endif
-
 int main(int argc, char *argv[])
 {
-#ifdef KEINE_WARNUNG
-	#if QT_VERSION >= 0x050000
-		qInstallMessageHandler(Meldungsverwaltung);
-	#else
-		qInstallMsgHandler(Meldungsverwaltung);
-	#endif
-#endif
 		QApplication Qt(argc, argv);
 		QTranslator QtUebersetzung;
 		QTranslator ProgrammUebersetzung;

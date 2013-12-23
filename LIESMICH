@@ -1,5 +1,5 @@
 Hier entsteht das Programm was die Gefahrentafeln erklärt.
 Erstellen:
-qmake DEFINES=KEINE_WARNUNG Warntafel.pro
+qmake Warntafel.pro
 make -j4
 ./GefahrenzettelErstellen.sh
