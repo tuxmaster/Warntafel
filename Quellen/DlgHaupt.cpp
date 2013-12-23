@@ -34,6 +34,8 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	connect(Modell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(Modell);
 	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+	tbGefahrenzettel->horizontalHeader()->setStretchLastSection(true);
+	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 }
 void DlgHaupt::InDieMitte()
 {

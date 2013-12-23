@@ -13,7 +13,10 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-QT       += core gui network sql
+QT      += core gui network sql
+CONFIG  += warn_on
+
+
 TARGET = Warntafeln
 UI_DIR=tmp/ui
 MOC_DIR=tmp/moc

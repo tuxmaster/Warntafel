@@ -56,29 +56,34 @@ int ModellGefahrgutklasse::rowCount(const QModelIndex &) const
 }
 QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 {
-	if((index.column()==0) && (rolle==Qt::DisplayRole))
+	switch(rolle)
 	{
-		//Symbol anzeige
-		return QString("kommt noch");
-	}
-	else
-	{
-		switch(rolle)
-		{
-			case Qt::TextAlignmentRole:
-					// Die Klassennummer soll zentiert sein.
-					if(index.column()==1)
-						return Qt::AlignCenter;
-					else
-						return QVariant();
-					break;
-			case Qt::DisplayRole:
+		case Qt::TextAlignmentRole:
+				// Die Klassennummer soll zentiert sein.
+				if(index.column()==1)
+					return Qt::AlignCenter;
+				else
+					return QVariant();
+				break;
+		case Qt::DecorationRole:
+				if(index.column()!=0)
+					return QVariant();
+				else
+				{
+					QPixmap Symbol(K_SQLDaten->data(index).toString());
+					Symbol=Symbol.scaled(50,50,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation);
+					return Symbol;
+				}
+				break;
+		case Qt::DisplayRole:
+				if (index.column()!=0)
 					return K_SQLDaten->data(index);
-					break;
-			default:
-				return QVariant();
-					break;
-		}
+				else
+					return QVariant();
+				break;
+		default:
+			return QVariant();
+				break;
 	}
 	return QVariant();
 }
