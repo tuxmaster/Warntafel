@@ -19,6 +19,7 @@
 #include <QtSql>
 #include "Vorgaben.h"
 #include "Modellgefahrgutklasse.h"
+#include "DlgGefahrensymbol.h"
 
 DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
@@ -30,6 +31,7 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
 		return;
 	}
+	K_SymbolAnzeigen=new DlgGefahrensymbol(this);
 	K_Gefahrgutklassemodell=new ModellGefahrgutklasse(this);
 	connect(K_Gefahrgutklassemodell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(K_Gefahrgutklassemodell);
@@ -105,5 +107,8 @@ void DlgHaupt::GefahrenzettelSymbolAnzeige(const QModelIndex &welches)
 	if(welches.column()!=0)
 		return;
 	else
-		qDebug()<<K_Gefahrgutklassemodell->Symbolpfad(welches);
+	{
+		K_SymbolAnzeigen->SymbolSetzen(K_Gefahrgutklassemodell->Symbolpfad(welches));
+		K_SymbolAnzeigen->exec();
+	}
 }

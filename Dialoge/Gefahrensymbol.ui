@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Frank Büttner</author>
+ <class>DlgGefahrensymbol</class>
+ <widget class="QDialog" name="DlgGefahrensymbol">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gefahrsymbol</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../Resourcen.qrc">
+    <normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="Symbol">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="sbDiverse">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../Resourcen.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>sbDiverse</sender>
+   <signal>accepted()</signal>
+   <receiver>DlgGefahrensymbol</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

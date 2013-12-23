@@ -26,15 +26,18 @@ RCC_DIR=tmp/rcc
 HEADERS += \
     Quellen/DlgHaupt.h \
     Quellen/Vorgaben.h \
-    Quellen/Modellgefahrgutklasse.h
+    Quellen/Modellgefahrgutklasse.h \
+    Quellen/DlgGefahrensymbol.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
     Quellen/Start.cpp \
-    Quellen/Modellgefahrgutklasse.cpp
+    Quellen/Modellgefahrgutklasse.cpp \
+    Quellen/DlgGefahrensymbol.cpp
 
 FORMS += \
-    Dialoge/Hauptfenster.ui
+    Dialoge/Hauptfenster.ui \
+    Dialoge/Gefahrensymbol.ui
 
 TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
 

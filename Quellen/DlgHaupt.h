@@ -20,6 +20,7 @@
 #include "ui_Hauptfenster.h"
 
 class ModellGefahrgutklasse;
+class DlgGefahrensymbol;
 class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 {
 		Q_OBJECT
@@ -36,6 +37,7 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 	private:
 		void					InDieMitte();
 		ModellGefahrgutklasse	*K_Gefahrgutklassemodell;
+		DlgGefahrensymbol		*K_SymbolAnzeigen;
 
 	private Q_SLOTS:
 		void					Fehler(const QString &fehler);
