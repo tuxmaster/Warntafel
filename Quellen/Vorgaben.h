@@ -18,14 +18,17 @@
 #ifndef VORGABEN_H
 #define VORGABEN_H
 
-#define PROGRAMM "Warntafel"
-#define VERSION "0.0.1"
-#define BILDPUFFER_KB 102400
+#define PROGRAMM				"Warntafel"
+#define VERSION					"0.0.1"
+#define BILDPUFFER_KB			102400
 
-#define GEFAHRENZETTEL "Gefahrenzettel.dat"
-#define GEFAHRENZETTELPFAD "./"
-#define GEFAHRENZETTELDB "DBGEFAHRENZETTEL"
-#define GEFAHRENZETTELSYMBOL "Gefahrenzettel.rcc"
+#define GEFAHRENZETTEL			"Gefahrenzettel.dat"
+#define GEFAHRENZETTELPFAD		"./"
+#define GEFAHRENZETTELDB		"DBGEFAHRENZETTEL"
+#define GEFAHRENZETTELSYMBOL	"Gefahrenzettel.rcc"
 
+#define GEFAHRGUTNUMMERN		"Gefahrgutnummern.dat"
+#define GEFAHRGUTNUMMERNPFAD	GEFAHRENZETTELPFAD
+#define GEFAHRGUTNUMMERNDB		"DBGEFAHRGUTNUMMERN"
 
 #endif // VORGABEN_H

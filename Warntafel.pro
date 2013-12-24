@@ -28,26 +28,34 @@ Doku.depends = $(TARGET)
 GefahrenZettel.commands = ./GefahrenzettelErstellen.sh
 GefahrenZettel.depends = $(TARGET)
 
-QMAKE_EXTRA_TARGETS += Doku GefahrenZettel
+Warntafel.commands = ./WarntafelnErstellen.sh
+Warntafel.depends = $(TARGET)
+
+QMAKE_EXTRA_TARGETS += Doku GefahrenZettel Warntafel
 
 HEADERS += \
     Quellen/DlgHaupt.h \
     Quellen/Vorgaben.h \
     Quellen/Modellgefahrgutklasse.h \
     Quellen/DlgGefahrensymbol.h \
-    Quellen/DlgWarntafel.h
+    Quellen/DlgWarntafel.h \
+    Quellen/DlgWarntafelAnzeigen.h \
+    Quellen/Gefahrkennzahltester.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
     Quellen/Start.cpp \
     Quellen/Modellgefahrgutklasse.cpp \
     Quellen/DlgGefahrensymbol.cpp \
-    Quellen/DlgWarntafel.cpp
+    Quellen/DlgWarntafel.cpp \
+    Quellen/DlgWarntafelAnzeigen.cpp \
+    Quellen/Gefahrkennzahltester.cpp
 
 FORMS += \
     Dialoge/Hauptfenster.ui \
     Dialoge/Gefahrensymbol.ui \
-    Dialoge/Warntafel.ui
+    Dialoge/Warntafel.ui \
+    Dialoge/WarntafelAnzeigen.ui
 
 TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
 

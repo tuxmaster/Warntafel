@@ -22,6 +22,7 @@
 class ModellGefahrgutklasse;
 class DlgGefahrensymbol;
 class DlgWarntafel;
+class DlgWarntafelAnzeigen;
 class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 {
 		Q_OBJECT
@@ -37,13 +38,16 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 
 	private:
 		void					InDieMitte();
+		bool					GefahenkennzahlenLaden();
 		ModellGefahrgutklasse	*K_Gefahrgutklassemodell;
 		DlgGefahrensymbol		*K_SymbolAnzeigen;
 		DlgWarntafel			*K_Warntafel;
+		DlgWarntafelAnzeigen	*K_TafelZeigen;
 
 	private Q_SLOTS:
 		void					Fehler(const QString &fehler);
 		void					GefahrenzettelSymbolAnzeige(const QModelIndex &welches);
+		void					TafelAusgefuellt();
 
 	protected:
 		void					changeEvent(QEvent *e);

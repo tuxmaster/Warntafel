@@ -16,13 +16,16 @@
 */
 
 #include "DlgWarntafel.h"
+#include "Gefahrkennzahltester.h"
 #include <QtGui>
 
 DlgWarntafel::DlgWarntafel(QWidget *eltern) :QWidget(eltern)
 {
 	setupUi(this);
+	Gefahrkennzahltester *Gefahrtester=new Gefahrkennzahltester(this);
 	QIntValidator *UN_Nummertest=new QIntValidator(4,9004,this);
 	txtUN_Nummer->setValidator(UN_Nummertest);
+	txtGefahrgutnummer->setValidator(Gefahrtester);
 }
 
 void DlgWarntafel::changeEvent(QEvent *e)
@@ -37,7 +40,12 @@ void DlgWarntafel::changeEvent(QEvent *e)
 			break;
 	}
 }
-void DlgWarntafel::on_txtUN_Nummer_editingFinished()
+void DlgWarntafel::on_txtUN_Nummer_returnPressed()
 {
-	qDebug()<<txtUN_Nummer->text();
+	if(txtGefahrgutnummer->hasAcceptableInput())
+		Q_EMIT DatenStimmig();
+}
+void DlgWarntafel::Fehler(const QString &fehler)
+{
+	QMessageBox::critical(this,tr("Fehler"),fehler);
 }

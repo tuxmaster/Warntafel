@@ -15,26 +15,20 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#ifndef DLGWARNTAFEL_H
-#define DLGWARNTAFEL_H
+#ifndef DLGWARNTAFELANZEIGEN_H
+#define DLGWARNTAFELANZEIGEN_H
 
-#include "ui_Warntafel.h"
-class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
+#include "ui_WarntafelAnzeigen.h"
+
+class DlgWarntafelAnzeigen : public QDialog, private Ui::DlgWarntafelAnzeigen
 {
 		Q_OBJECT
 
 	public:
-		explicit				DlgWarntafel(QWidget *eltern = 0);
-
-	Q_SIGNALS:
-		void					DatenStimmig();
-
-	private Q_SLOTS:
-		void					on_txtUN_Nummer_returnPressed();
-		void					Fehler(const QString &fehler);
+		explicit DlgWarntafelAnzeigen(QWidget *eltern = 0);
 
 	protected:
-		void					changeEvent(QEvent *e);
+		void changeEvent(QEvent *e);
 };
 
-#endif // DLGWARNTAFEL_H
+#endif // DLGWARNTAFELANZEIGEN_H

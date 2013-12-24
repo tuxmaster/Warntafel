@@ -21,6 +21,7 @@
 #include "Modellgefahrgutklasse.h"
 #include "DlgGefahrensymbol.h"
 #include "DlgWarntafel.h"
+#include "DlgWarntafelAnzeigen.h"
 
 DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
@@ -32,6 +33,8 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
 		return;
 	}
+	if(!GefahenkennzahlenLaden())
+		return;
 	K_SymbolAnzeigen=new DlgGefahrensymbol(this);
 	K_Gefahrgutklassemodell=new ModellGefahrgutklasse(this);
 	connect(K_Gefahrgutklassemodell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
@@ -42,6 +45,8 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	connect(tbGefahrenzettel,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(GefahrenzettelSymbolAnzeige(QModelIndex)));
 
 	K_Warntafel=new DlgWarntafel(this);
+	K_TafelZeigen=new DlgWarntafelAnzeigen(this);
+	connect(K_Warntafel,SIGNAL(DatenStimmig()),this,SLOT(TafelAusgefuellt()));
 	QVBoxLayout *Ansicht=new QVBoxLayout(Warntafel);
 	Ansicht->addWidget(K_Warntafel);
 	Warntafel->setLayout(Ansicht);
@@ -117,4 +122,19 @@ void DlgHaupt::GefahrenzettelSymbolAnzeige(const QModelIndex &welches)
 		K_SymbolAnzeigen->SymbolSetzen(K_Gefahrgutklassemodell->Symbolpfad(welches));
 		K_SymbolAnzeigen->exec();
 	}
+}
+void DlgHaupt::TafelAusgefuellt()
+{
+	K_TafelZeigen->exec();
+}
+bool DlgHaupt::GefahenkennzahlenLaden()
+{
+	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRGUTNUMMERNDB);
+	DB.setDatabaseName(QString("%1%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
+	if(!DB.open())
+	{
+		Fehler(trUtf8("Konnte die Gefahrennummern nicht laden.\n%1").arg(DB.lastError().text()));
+		return false;
+	}
+	return true;
 }

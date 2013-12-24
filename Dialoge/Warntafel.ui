@@ -53,6 +53,9 @@ QLineEdit
       <bool>true</bool>
      </property>
      <widget class="QLineEdit" name="txtGefahrgutnummer">
+      <property name="toolTip">
+       <string>Hier bitte die Gefahrenkennzahl eintragen.</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -61,6 +64,9 @@ QLineEdit
       </property>
      </widget>
      <widget class="QLineEdit" name="txtUN_Nummer">
+      <property name="toolTip">
+       <string>Hier bitte die UN Nummer eintragen und mit der Eingabetaste die Auswertung suchenlassen.</string>
+      </property>
       <property name="maxLength">
        <number>4</number>
       </property>

@@ -15,26 +15,23 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#ifndef DLGWARNTAFEL_H
-#define DLGWARNTAFEL_H
+#ifndef GEFAHRKENNZAHLTESTER_H
+#define GEFAHRKENNZAHLTESTER_H
+#include <QtCore>
+#include <QValidator>
 
-#include "ui_Warntafel.h"
-class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
+class Gefahrkennzahltester : public QValidator
 {
 		Q_OBJECT
-
 	public:
-		explicit				DlgWarntafel(QWidget *eltern = 0);
+		Gefahrkennzahltester(QObject* eltern=0);
+		QValidator::State validate(QString &eingabe, int &) const;
 
 	Q_SIGNALS:
-		void					DatenStimmig();
+		void	Fehler(const QString &Fehler) const;
 
-	private Q_SLOTS:
-		void					on_txtUN_Nummer_returnPressed();
-		void					Fehler(const QString &fehler);
-
-	protected:
-		void					changeEvent(QEvent *e);
+	private:
+		void	FehlerAufgetreten(const QString &fehler)const;
 };
 
-#endif // DLGWARNTAFEL_H
+#endif // GEFAHRKENNZAHLTESTER_H
