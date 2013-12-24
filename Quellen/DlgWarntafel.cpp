@@ -21,8 +21,8 @@
 DlgWarntafel::DlgWarntafel(QWidget *eltern) :QWidget(eltern)
 {
 	setupUi(this);
-	QIntValidator *Tester=new QIntValidator(0,9999,this);
-	txtUN_Nummer->setValidator(Tester);
+	QIntValidator *UN_Nummertest=new QIntValidator(4,9004,this);
+	txtUN_Nummer->setValidator(UN_Nummertest);
 }
 
 void DlgWarntafel::changeEvent(QEvent *e)
