@@ -16,12 +16,19 @@
 QT      += core gui network sql svg
 CONFIG  += warn_on
 
-
 TARGET = Warntafeln
 UI_DIR=tmp/ui
 MOC_DIR=tmp/moc
 OBJECTS_DIR=tmp/obj
 RCC_DIR=tmp/rcc
+
+Doku.commands = doxygen
+Doku.depends = $(TARGET)
+
+GefahrenZettel.commands = ./GefahrenzettelErstellen.sh
+GefahrenZettel.depends = $(TARGET)
+
+QMAKE_EXTRA_TARGETS += Doku GefahrenZettel
 
 HEADERS += \
     Quellen/DlgHaupt.h \

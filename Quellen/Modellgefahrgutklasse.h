@@ -21,7 +21,6 @@
 #include <QtCore>
 
 class QSqlTableModel;
-
 class ModellGefahrgutklasse : public QAbstractTableModel
 {
 		Q_OBJECT
