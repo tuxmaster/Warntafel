@@ -28,7 +28,7 @@ class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
 		explicit	DlgWarntafel(QWidget *eltern = 0);
 
 	private Q_SLOTS:
-
+		void		on_txtUN_Nummer_editingFinished();
 
 	protected:
 		void		changeEvent(QEvent *e);

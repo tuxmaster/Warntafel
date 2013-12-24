@@ -37,3 +37,7 @@ void DlgWarntafel::changeEvent(QEvent *e)
 			break;
 	}
 }
+void DlgWarntafel::on_txtUN_Nummer_editingFinished()
+{
+	qDebug()<<txtUN_Nummer->text();
+}

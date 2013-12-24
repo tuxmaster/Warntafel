@@ -3,4 +3,5 @@ Erstellen:
 qmake Warntafel.pro
 make -j4
 make GefahrenZettel
+make Warntafel
 make Doku (optional)
