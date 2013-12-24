@@ -24,26 +24,27 @@ Gefahrkennzahltester::Gefahrkennzahltester(QObject *eltern):QValidator(eltern)
 }
 QValidator::State Gefahrkennzahltester::validate(QString &eingabe, int &) const
 {
-	//Mehr als 4 Stellen oder ein Buchtabe außer X
-	if((eingabe.contains(QRegExp("[A-W]|[Y-Z]",Qt::CaseInsensitive))) || (eingabe.size()>4))
+	if(eingabe.isEmpty())
+		return QValidator::Intermediate;
+	if(eingabe.size()>4)
 		return QValidator::Invalid;
 	//Wenn der Eintrag in der DB ist, dann gültig, sonst mittendrin
 	QSqlDatabase DB = QSqlDatabase::database(GEFAHRGUTNUMMERNDB);
 	QSqlQuery Abfrage(DB);
-	if(!Abfrage.prepare("select Nummer from Gefahrgutnummern where Nummer=?"))
+	if(!Abfrage.prepare("select Nummer from Gefahrgutnummern where Nummer like ?"))
 	{
 		FehlerAufgetreten(Abfrage.lastError().text());
-		return QValidator::Intermediate;
+		return QValidator::Invalid;
 	}
-	Abfrage.bindValue(0,eingabe);
+	Abfrage.bindValue(0,QString("%1%").arg(eingabe));
 	if(!Abfrage.exec())
 	{
 		FehlerAufgetreten(Abfrage.lastError().text());
-		return QValidator::Intermediate;
+		return QValidator::Invalid;
 	}
 	while (Abfrage.next())
 		return QValidator::Acceptable;
-	return QValidator::Intermediate;
+	return QValidator::Invalid;
 }
 void Gefahrkennzahltester::FehlerAufgetreten(const QString &fehler) const
 {
