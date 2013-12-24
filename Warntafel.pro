@@ -51,4 +51,5 @@ TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
 RESOURCES += \
     Resourcen.qrc
 
-OTHER_FILES += Gefahrenzettel.qrc
+OTHER_FILES += Gefahrenzettel.qrc \
+    Doxyfile
