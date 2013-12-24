@@ -62,21 +62,7 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="Warntafel">
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>60</y>
-          <width>241</width>
-          <height>91</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Warntafel</string>
-        </property>
-       </widget>
-      </widget>
+      <widget class="QWidget" name="Warntafel"/>
       <widget class="QWidget" name="Gefahrzettel">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>

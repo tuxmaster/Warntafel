@@ -20,6 +20,7 @@
 #include "Vorgaben.h"
 #include "Modellgefahrgutklasse.h"
 #include "DlgGefahrensymbol.h"
+#include "DlgWarntafel.h"
 
 DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
@@ -39,6 +40,11 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	tbGefahrenzettel->horizontalHeader()->setStretchLastSection(true);
 	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 	connect(tbGefahrenzettel,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(GefahrenzettelSymbolAnzeige(QModelIndex)));
+
+	K_Warntafel=new DlgWarntafel(this);
+	QVBoxLayout *Ansicht=new QVBoxLayout(Warntafel);
+	Ansicht->addWidget(K_Warntafel);
+	Warntafel->setLayout(Ansicht);
 }
 void DlgHaupt::InDieMitte()
 {

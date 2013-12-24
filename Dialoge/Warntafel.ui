@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Frank Büttner</author>
+ <class>DlgWarntafel</class>
+ <widget class="QWidget" name="DlgWarntafel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>516</width>
+    <height>469</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#DlgWarntafel
+{
+	background: rgb(254, 153, 0);
+	border: 10px solid black; 	
+	}
+QSplitter::handle
+{
+	background: black;
+ 	height: 10px;	
+}
+QLineEdit
+{
+	background: rgb(254, 153, 0);
+	border: 0px solid;
+	font-weight: bold;
+	font-size: 80px;
+	color: black;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="opaqueResize">
+      <bool>true</bool>
+     </property>
+     <widget class="QLineEdit" name="txtGefahrgutnummer">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="txtUN_Nummer">
+      <property name="maxLength">
+       <number>4</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>txtGefahrgutnummer</sender>
+   <signal>editingFinished()</signal>
+   <receiver>txtUN_Nummer</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

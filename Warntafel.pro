@@ -34,17 +34,20 @@ HEADERS += \
     Quellen/DlgHaupt.h \
     Quellen/Vorgaben.h \
     Quellen/Modellgefahrgutklasse.h \
-    Quellen/DlgGefahrensymbol.h
+    Quellen/DlgGefahrensymbol.h \
+    Quellen/DlgWarntafel.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
     Quellen/Start.cpp \
     Quellen/Modellgefahrgutklasse.cpp \
-    Quellen/DlgGefahrensymbol.cpp
+    Quellen/DlgGefahrensymbol.cpp \
+    Quellen/DlgWarntafel.cpp
 
 FORMS += \
     Dialoge/Hauptfenster.ui \
-    Dialoge/Gefahrensymbol.ui
+    Dialoge/Gefahrensymbol.ui \
+    Dialoge/Warntafel.ui
 
 TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
 
