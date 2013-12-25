@@ -24,6 +24,8 @@ DlgWarntafel::DlgWarntafel(QWidget *eltern) :QWidget(eltern)
 	setupUi(this);
 	Kennzahltester *Gefahrtester=new Kennzahltester(false,this);
 	Kennzahltester *UNNummertest=new Kennzahltester(true,this);
+	connect(Gefahrtester,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
+	connect(UNNummertest,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	txtUN_Nummer->setValidator(UNNummertest);
 	txtGefahrgutnummer->setValidator(Gefahrtester);
 }
@@ -47,5 +49,7 @@ void DlgWarntafel::on_txtUN_Nummer_returnPressed()
 }
 void DlgWarntafel::Fehler(const QString &fehler)
 {
+	QObject* Absender =sender();
+	Absender->disconnect(this,SLOT(Fehler(QString)));
 	QMessageBox::critical(this,tr("Fehler"),fehler);
 }

@@ -40,7 +40,12 @@ QValidator::State Kennzahltester::validate(QString &eingabe, int &) const
 	if(eingabe.size()>4)
 		return QValidator::Invalid;
 	//Wenn der Eintrag in der DB ist, dann gültig, sonst mittendrin
-	QSqlDatabase DB = QSqlDatabase::database(K_Datenbank);
+	QSqlDatabase DB = QSqlDatabase::database(K_Datenbank,false);
+	if(!DB.isValid())
+	{
+		FehlerAufgetreten(DB.lastError().text());
+		return QValidator::Invalid;
+	}
 	QSqlQuery Abfrage(DB);
 	if(!Abfrage.prepare(QString("select Nummer from %1 where Nummer like ?").arg(K_Tabelle)))
 	{
