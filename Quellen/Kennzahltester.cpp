@@ -15,23 +15,34 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#include "Gefahrkennzahltester.h"
+#include "Kennzahltester.h"
 #include "Vorgaben.h"
 #include <QtSql>
 
-Gefahrkennzahltester::Gefahrkennzahltester(QObject *eltern):QValidator(eltern)
+Kennzahltester::Kennzahltester(bool unnummer,QObject *eltern):QValidator(eltern)
 {
+	K_UNNummer=unnummer;
+	if(K_UNNummer)
+	{
+		K_Datenbank=UNNUMMERNDB;
+		K_Tabelle="UNNummern";
+	}
+	else
+	{
+			K_Datenbank=GEFAHRGUTNUMMERNDB;
+			K_Tabelle="Gefahrgutnummern";
+	}
 }
-QValidator::State Gefahrkennzahltester::validate(QString &eingabe, int &) const
+QValidator::State Kennzahltester::validate(QString &eingabe, int &) const
 {
 	if(eingabe.isEmpty())
 		return QValidator::Intermediate;
 	if(eingabe.size()>4)
 		return QValidator::Invalid;
 	//Wenn der Eintrag in der DB ist, dann gültig, sonst mittendrin
-	QSqlDatabase DB = QSqlDatabase::database(GEFAHRGUTNUMMERNDB);
+	QSqlDatabase DB = QSqlDatabase::database(K_Datenbank);
 	QSqlQuery Abfrage(DB);
-	if(!Abfrage.prepare("select Nummer from Gefahrgutnummern where Nummer like ?"))
+	if(!Abfrage.prepare(QString("select Nummer from %1 where Nummer like ?").arg(K_Tabelle)))
 	{
 		FehlerAufgetreten(Abfrage.lastError().text());
 		return QValidator::Invalid;
@@ -46,7 +57,7 @@ QValidator::State Gefahrkennzahltester::validate(QString &eingabe, int &) const
 		return QValidator::Acceptable;
 	return QValidator::Invalid;
 }
-void Gefahrkennzahltester::FehlerAufgetreten(const QString &fehler) const
+void Kennzahltester::FehlerAufgetreten(const QString &fehler) const
 {
-	Q_EMIT Fehler(tr("Datenbankfehler Gefahrgutnummern.\n%1").arg(fehler));
+	Q_EMIT Fehler(tr("Datenbankfehler %1.\n%2").arg(K_Tabelle).arg(fehler));
 }

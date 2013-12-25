@@ -40,7 +40,7 @@ HEADERS += \
     Quellen/DlgGefahrensymbol.h \
     Quellen/DlgWarntafel.h \
     Quellen/DlgWarntafelAnzeigen.h \
-    Quellen/Gefahrkennzahltester.h
+    Quellen/Kennzahltester.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
@@ -49,7 +49,7 @@ SOURCES += \
     Quellen/DlgGefahrensymbol.cpp \
     Quellen/DlgWarntafel.cpp \
     Quellen/DlgWarntafelAnzeigen.cpp \
-    Quellen/Gefahrkennzahltester.cpp
+    Quellen/Kennzahltester.cpp
 
 FORMS += \
     Dialoge/Hauptfenster.ui \

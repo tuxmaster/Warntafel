@@ -20,11 +20,11 @@
 #include <QtCore>
 #include <QValidator>
 
-class Gefahrkennzahltester : public QValidator
+class Kennzahltester : public QValidator
 {
 		Q_OBJECT
 	public:
-		Gefahrkennzahltester(QObject* eltern=0);
+		Kennzahltester(bool unnummer,QObject* eltern=0);
 		QValidator::State validate(QString &eingabe, int &) const;
 
 	Q_SIGNALS:
@@ -32,6 +32,9 @@ class Gefahrkennzahltester : public QValidator
 
 	private:
 		void	FehlerAufgetreten(const QString &fehler)const;
+		bool	K_UNNummer;
+		QString	K_Tabelle;
+		QString	K_Datenbank;
 };
 
 #endif // GEFAHRKENNZAHLTESTER_H

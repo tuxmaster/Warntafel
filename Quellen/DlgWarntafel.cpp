@@ -16,15 +16,15 @@
 */
 
 #include "DlgWarntafel.h"
-#include "Gefahrkennzahltester.h"
+#include "Kennzahltester.h"
 #include <QtGui>
 
 DlgWarntafel::DlgWarntafel(QWidget *eltern) :QWidget(eltern)
 {
 	setupUi(this);
-	Gefahrkennzahltester *Gefahrtester=new Gefahrkennzahltester(this);
-	QIntValidator *UN_Nummertest=new QIntValidator(4,9004,this);
-	txtUN_Nummer->setValidator(UN_Nummertest);
+	Kennzahltester *Gefahrtester=new Kennzahltester(false,this);
+	Kennzahltester *UNNummertest=new Kennzahltester(true,this);
+	txtUN_Nummer->setValidator(UNNummertest);
 	txtGefahrgutnummer->setValidator(Gefahrtester);
 }
 
