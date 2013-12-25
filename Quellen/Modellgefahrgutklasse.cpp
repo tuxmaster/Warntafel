@@ -35,7 +35,7 @@ ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableMod
 	{
 		if (!QResource::registerResource(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL)))
 		{
-			K_Hilfsfehlertext=tr("Konte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL));
+			K_Hilfsfehlertext=tr("Konnte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL));
 			QTimer::singleShot(0,this,SLOT(Hilfsfehler()));
 			return;
 		}
