@@ -96,7 +96,24 @@
      </widget>
     </item>
     <item>
-     <widget class="QTableView" name="Tabelle"/>
+     <widget class="QTableView" name="Tabelle">
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sfZeileEinfuegen">
+      <property name="text">
+       <string>Zeile einfügen</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

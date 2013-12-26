@@ -45,7 +45,6 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 	K_Gefahrgutnummernmodell=0;
 
 	Tabelle->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
-	Tabelle->horizontalHeader()->setStretchLastSection(true);
 }
 
 void DlgEditor::changeEvent(QEvent *e)
@@ -134,16 +133,22 @@ void DlgEditor::on_action_UN_NummernLaden_triggered()
 }
 void DlgEditor::on_action_GefahrenzettelSpeichern_triggered()
 {
+	if(!K_Gefahrenzettelmodell)
+		return;
 	if(!K_Gefahrenzettelmodell->submitAll())
 		Fehler(K_Gefahrenzettelmodell->lastError().text());
 }
 void DlgEditor::on_action_StoffgruppenSpeichern_triggered()
 {
+	if(!K_Gefahrgutnummernmodell)
+		return;
 	if(!K_Gefahrgutnummernmodell->submitAll())
 		Fehler(K_Gefahrgutnummernmodell->lastError().text());
 }
 void DlgEditor::on_action_UN_NummernSpeichern_triggered()
 {
+	if(!K_UNNummernmodell)
+		return;
 	if(!K_UNNummernmodell->submitAll())
 		Fehler(K_UNNummernmodell->lastError().text());
 }
@@ -155,9 +160,23 @@ void DlgEditor::Fehler(const QString &fehler)
 }
 void DlgEditor::closeEvent(QCloseEvent *e)
 {
-	if(QMessageBox::question(this,tr("Beenden"),trUtf8("Alle nicht gepeicherten Änderungen gehen verloren.\nSind Sie sicher?"),
-							 QMessageBox::Yes|QMessageBox::No,QMessageBox::No)==QMessageBox::Yes)
+	//nur fragen wenn was gemacht wurde
+	if((!K_Gefahrenzettelmodell) && (!K_Gefahrgutnummernmodell) && (!K_UNNummernmodell))
 		e->accept();
+	else if(QMessageBox::question(this,tr("Beenden"),trUtf8("Alle nicht gepeicherten Änderungen gehen verloren.\nSind Sie sicher?"),
+								 QMessageBox::Yes|QMessageBox::No,QMessageBox::No)==QMessageBox::Yes)
+			e->accept();
 	else
-		e->ignore();
+			e->ignore();
+}
+void DlgEditor::on_sfZeileEinfuegen_clicked()
+{
+	QSqlTableModel *Modell=(QSqlTableModel*)Tabelle->model();
+	if(!Modell)
+		return;
+	else
+	{
+		Modell->insertRows(Modell->rowCount(),1);
+		Tabelle->scrollTo(Modell->index(Modell->rowCount()-1,1));
+	}
 }

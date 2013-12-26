@@ -43,7 +43,6 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	connect(K_Gefahrgutklassemodell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(K_Gefahrgutklassemodell);
 	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
-	tbGefahrenzettel->horizontalHeader()->setStretchLastSection(true);
 	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 	connect(tbGefahrenzettel,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(GefahrenzettelSymbolAnzeige(QModelIndex)));
 
