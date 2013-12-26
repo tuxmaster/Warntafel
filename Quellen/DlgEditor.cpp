@@ -134,19 +134,30 @@ void DlgEditor::on_action_UN_NummernLaden_triggered()
 }
 void DlgEditor::on_action_GefahrenzettelSpeichern_triggered()
 {
-
+	if(!K_Gefahrenzettelmodell->submitAll())
+		Fehler(K_Gefahrenzettelmodell->lastError().text());
 }
 void DlgEditor::on_action_StoffgruppenSpeichern_triggered()
 {
-
+	if(!K_Gefahrgutnummernmodell->submitAll())
+		Fehler(K_Gefahrgutnummernmodell->lastError().text());
 }
 void DlgEditor::on_action_UN_NummernSpeichern_triggered()
 {
-
+	if(!K_UNNummernmodell->submitAll())
+		Fehler(K_UNNummernmodell->lastError().text());
 }
 
 void DlgEditor::Fehler(const QString &fehler)
 {
 	QMessageBox::critical(this,tr("Fehler"),fehler);
 	exit(1);
+}
+void DlgEditor::closeEvent(QCloseEvent *e)
+{
+	if(QMessageBox::question(this,tr("Beenden"),trUtf8("Alle nicht gepeicherten Änderungen gehen verloren.\nSind Sie sicher?"),
+							 QMessageBox::Yes|QMessageBox::No,QMessageBox::No)==QMessageBox::Yes)
+		e->accept();
+	else
+		e->ignore();
 }

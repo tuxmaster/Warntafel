@@ -53,6 +53,7 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 
 	protected:
 		void				changeEvent(QEvent *e);
+		void				closeEvent (QCloseEvent *e);
 };
 
 #endif // DLGEDITOR_H
