@@ -18,10 +18,13 @@
 #ifndef DLGEDITOR_H
 #define DLGEDITOR_H
 
+#include <QProcess>
+
 #include "ui_Editor.h"
 
 class QSqlTableModel;
 class QFileDialog;
+
 class DlgEditor : public QMainWindow, private Ui::DlgEditor
 {
 		Q_OBJECT
@@ -35,6 +38,7 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 		QSqlTableModel*		K_Gefahrenzettelmodell;
 		QSqlTableModel*		K_Gefahrgutnummernmodell;
 		QFileDialog*		K_Dateiauswahl;
+		QProcess*			K_Prozess;
 
 	private Q_SLOTS:
 		void				Fehler(const QString &fehler);
@@ -49,6 +53,7 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 
 		void				on_action_GefahrgutklasseLaden_triggered();
 		void				on_action_GefahrgutklasseSpeichern_triggered();
+		void				on_action_GefahrgutklasseKompilieren_triggered();
 
 		void				on_action_GefahrenzettelLaden_triggered();
 		void				on_action_StoffgruppenLaden_triggered();
@@ -60,6 +65,8 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 
 		void				on_sfZeileEinfuegen_clicked();
 		void				on_sfZeileLoeschen_clicked();
+
+		void				ProzessFertig(int rueckgabe, QProcess::ExitStatus);
 
 	protected:
 		void				changeEvent(QEvent *e);

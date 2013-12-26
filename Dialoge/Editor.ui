@@ -216,6 +216,7 @@
      </property>
      <addaction name="action_GefahrgutklasseLaden"/>
      <addaction name="action_GefahrgutklasseSpeichern"/>
+     <addaction name="action_GefahrgutklasseKompilieren"/>
     </widget>
     <addaction name="action_SymboleAktivieren"/>
     <addaction name="separator"/>
@@ -277,6 +278,11 @@
   <action name="action_GefahrgutklasseSpeichern">
    <property name="text">
     <string>&amp;speichern</string>
+   </property>
+  </action>
+  <action name="action_GefahrgutklasseKompilieren">
+   <property name="text">
+    <string>&amp;kompilieren</string>
    </property>
   </action>
  </widget>

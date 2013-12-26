@@ -33,6 +33,9 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 		return;
 	}
 
+	K_Prozess=new QProcess(this);
+	connect(K_Prozess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(ProzessFertig(int,QProcess::ExitStatus)));
+
 	K_Dateiauswahl=new QFileDialog(this);
 	K_Dateiauswahl->setDirectory(GEFAHRENZETTELPFAD);
 
@@ -167,7 +170,7 @@ void DlgEditor::Fehler(const QString &fehler)
 void DlgEditor::closeEvent(QCloseEvent *e)
 {
 	//nur fragen wenn was gemacht wurde
-	if((!K_Gefahrenzettelmodell) && (!K_Gefahrgutnummernmodell) && (!K_UNNummernmodell))
+	if((!K_Gefahrenzettelmodell) && (!K_Gefahrgutnummernmodell) && (!K_UNNummernmodell) && (txtSymbole->toPlainText().isEmpty()))
 		e->accept();
 	else if(QMessageBox::question(this,tr("Beenden"),trUtf8("Alle nicht gepeicherten Änderungen gehen verloren.\nSind Sie sicher?"),
 								 QMessageBox::Yes|QMessageBox::No,QMessageBox::No)==QMessageBox::Yes)
@@ -226,4 +229,18 @@ void DlgEditor::on_action_GefahrgutklasseSpeichern_triggered()
 	QTextStream Datenstrom(&Datei);
 	Datenstrom<<txtSymbole->toPlainText();
 	Datei.close();
+}
+void DlgEditor::on_action_GefahrgutklasseKompilieren_triggered()
+{
+	QStringList Parameter;
+	Parameter<<"-binary"<<txtSymboldatei->text()<<"-o"<<txtSymboldatei->text().replace(".qrc",".rcc");
+	K_Prozess->start("rcc",Parameter);
+}
+void DlgEditor::ProzessFertig(int rueckgabe, QProcess::ExitStatus)
+{
+	if(rueckgabe==0)
+		QMessageBox::information(this,tr("Fertig"),tr("Symbole kompiliert"));
+	else
+		QMessageBox::warning(this,tr("Fertig"),tr("Die Synbole konnten nicht kompeliert werden.\n%1\n%2").arg(QString(K_Prozess->readAllStandardOutput()))
+																										 .arg(QString(K_Prozess->readAllStandardError())));
 }
