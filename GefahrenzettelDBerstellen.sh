@@ -1,24 +1,5 @@
 #! /bin/bash
+# Erstellen mit: sqlite3 Gefahrenzettel.dat ".dump Zettel" > Gefahrenzettel.sql
 Datei="Gefahrenzettel.dat"
 rm -f $Datei 2>/dev/null
-sqlite3 $Datei "create table Zettel( Symbol text,Klasse text, Beschreibung text);"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/1.svg','1','Explosiv');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/2.1.svg','2.1','Gas (entzündbar)');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/2.2.svg','2.2','Gas (nicht entzündbar)');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/2.3.svg','2.3','Gas (giftig)');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/3.svg','3','flüssige Stoffe (entzündbar)');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/4.1.svg','4.1','feste Stoffe (entzündbar)');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/4.2.svg','4.2','selbstentzündlche Stoffe');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/4.3.svg','4.3','bildet mit Wasser entzündliche Gase');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/5.1.svg','5.1','brandfördernt');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/5.2.svg','5.2','organische Peroxide');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/6.1.svg','6.1','giftig');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/6.2.svg','6.2','biologisch anteckend');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/7A.svg','7A','radioaktive Strahlung <= 0,005 mSv/h');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/7B.svg','7B','radioaktive Strahlung > 0,005 <= 0,5 mSv/h');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/7C.svg','7C','radioaktive Strahlung > 0,5 <= 2 mSv/h');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/7E.svg','7E','radioaktive Strahlung > 2 <= 10 mSv/h');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/8.svg','8','ätzend');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/9.svg','9','verschiedenes');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/Umwelt.svg','','Umweltgefährdend');"
-sqlite3 $Datei "insert into Zettel Values(':/Gefahrenklasse/Heiß.svg','','Heiß Flüssigkeite => 100 °C, Feststoffe > 240 °C');"
+sqlite3 $Datei < Gefahrenzettel.sql
