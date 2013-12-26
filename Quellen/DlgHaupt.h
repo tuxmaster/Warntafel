@@ -37,7 +37,6 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 		void					on_sfUeberWarntafel_clicked();
 
 	private:
-		void					InDieMitte();
 		bool					GefahenkennzahlenLaden();
 		bool					UNNummerLaden();
 		ModellGefahrgutklasse	*K_Gefahrgutklassemodell;

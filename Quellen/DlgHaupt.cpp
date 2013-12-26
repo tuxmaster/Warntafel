@@ -14,10 +14,13 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
-#include "DlgHaupt.h"
+
 #include <QtGui>
 #include <QtSql>
+
+#include "DlgHaupt.h"
 #include "Vorgaben.h"
+#include "Hilfsfunktionen.h"
 #include "Modellgefahrgutklasse.h"
 #include "DlgGefahrensymbol.h"
 #include "DlgWarntafel.h"
@@ -26,7 +29,7 @@
 DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 {
 	setupUi(this);
-	InDieMitte();
+	Hilfsfunktionen::FensterZentrieren(this);
 	// Wenn kein SQlite da ist, braucht man nicht weitermachen
 	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
 	{
@@ -50,27 +53,6 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	QVBoxLayout *Ansicht=new QVBoxLayout(Warntafel);
 	Ansicht->addWidget(K_Warntafel);
 	Warntafel->setLayout(Ansicht);
-}
-void DlgHaupt::InDieMitte()
-{
-	QDesktopWidget *Arbeitsplatz = QApplication::desktop();
-
-	int Bildschirmbreite, Breite;
-	int Bildschirmhoehe, Hoehe;
-	int x, y;
-	QSize Fenstergroesse;
-
-	Bildschirmbreite = Arbeitsplatz->width();
-	Bildschirmhoehe = Arbeitsplatz->height();
-
-	Fenstergroesse = size();
-	Breite = Fenstergroesse.width();
-	Hoehe = Fenstergroesse.height();
-
-	x = (Bildschirmbreite - Breite) / 2;
-	y = (Bildschirmhoehe - Hoehe) / 2;
-	//y -= 50;
-	move ( x, y );
 }
 
 void DlgHaupt::changeEvent(QEvent *e)

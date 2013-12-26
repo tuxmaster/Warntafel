@@ -15,9 +15,10 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtSql>
+
 #include "Kennzahltester.h"
 #include "Vorgaben.h"
-#include <QtSql>
 
 Kennzahltester::Kennzahltester(bool unnummer,QObject *eltern):QValidator(eltern)
 {

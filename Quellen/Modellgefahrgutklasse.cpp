@@ -15,10 +15,11 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtSql>
+#include <QtGui>
+
 #include "Modellgefahrgutklasse.h"
 #include "Vorgaben.h"
-#include "QtSql"
-#include "QtGui"
 
 ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableModel(eltern)
 {

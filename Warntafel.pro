@@ -40,7 +40,9 @@ HEADERS += \
     Quellen/DlgGefahrensymbol.h \
     Quellen/DlgWarntafel.h \
     Quellen/DlgWarntafelAnzeigen.h \
-    Quellen/Kennzahltester.h
+    Quellen/Kennzahltester.h \
+    Quellen/DlgEditor.h \
+    Quellen/Hilfsfunktionen.h
 
 SOURCES += \
     Quellen/DlgHaupt.cpp \
@@ -49,13 +51,16 @@ SOURCES += \
     Quellen/DlgGefahrensymbol.cpp \
     Quellen/DlgWarntafel.cpp \
     Quellen/DlgWarntafelAnzeigen.cpp \
-    Quellen/Kennzahltester.cpp
+    Quellen/Kennzahltester.cpp \
+    Quellen/DlgEditor.cpp \
+    Quellen/Hilfsfunktionen.cpp
 
 FORMS += \
     Dialoge/Hauptfenster.ui \
     Dialoge/Gefahrensymbol.ui \
     Dialoge/Warntafel.ui \
-    Dialoge/WarntafelAnzeigen.ui
+    Dialoge/WarntafelAnzeigen.ui \
+    Dialoge/Editor.ui
 
 TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
 

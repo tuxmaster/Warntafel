@@ -15,25 +15,28 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#ifndef DLGGEFAHRENSYMBOL_H
-#define DLGGEFAHRENSYMBOL_H
+#include <QtGui>
+#include <QtSql>
 
-#include "ui_Gefahrensymbol.h"
+#include "DlgEditor.h"
+#include "Vorgaben.h"
+#include "Hilfsfunktionen.h"
 
-class QSvgWidget;
-class DlgGefahrensymbol : public QDialog, private Ui::DlgGefahrensymbol
+DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 {
-		Q_OBJECT
+	setupUi(this);
+	Hilfsfunktionen::FensterZentrieren(this);
+}
 
-	public:
-		explicit	DlgGefahrensymbol(QWidget *eltern = 0);
-		void		SymbolSetzen(const QString &dateiname);
-
-	private:
-		QSvgWidget	*K_Symbolanzeige;
-
-	protected:
-		void		changeEvent(QEvent *e);
-};
-
-#endif // DLGGEFAHRENSYMBOL_H
+void DlgEditor::changeEvent(QEvent *e)
+{
+	QMainWindow::changeEvent(e);
+	switch (e->type())
+	{
+		case QEvent::LanguageChange:
+			retranslateUi(this);
+			break;
+		default:
+			break;
+	}
+}

@@ -15,9 +15,10 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtGui>
+
 #include "DlgWarntafel.h"
 #include "Kennzahltester.h"
-#include <QtGui>
 
 DlgWarntafel::DlgWarntafel(QWidget *eltern) :QWidget(eltern)
 {

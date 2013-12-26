@@ -4,3 +4,5 @@ qmake Warntafel.pro
 make -j4
 make GefahrenZettel Warntafel
 make Doku (optional)
+./Warntafel
+oder ./Warntafel --editor um die Datenbanken zu bearbeiten

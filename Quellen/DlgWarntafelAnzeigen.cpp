@@ -15,7 +15,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#include "Quellen/DlgWarntafelAnzeigen.h"
+#include "DlgWarntafelAnzeigen.h"
 
 DlgWarntafelAnzeigen::DlgWarntafelAnzeigen(QWidget *eltern) :QDialog(eltern)
 {

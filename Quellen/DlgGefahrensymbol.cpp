@@ -15,9 +15,10 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#include "DlgGefahrensymbol.h"
 #include <QtGui>
 #include <QtSvg>
+
+#include "DlgGefahrensymbol.h"
 
 DlgGefahrensymbol::DlgGefahrensymbol(QWidget *eltern) :	QDialog(eltern)
 {

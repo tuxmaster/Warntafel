@@ -17,6 +17,7 @@
 
 #ifndef GEFAHRKENNZAHLTESTER_H
 #define GEFAHRKENNZAHLTESTER_H
+
 #include <QtCore>
 #include <QValidator>
 

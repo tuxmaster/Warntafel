@@ -15,7 +15,9 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 #include <QtGui>
+
 #include "DlgHaupt.h"
+#include "DlgEditor.h"
 #include "Vorgaben.h"
 
 int main(int argc, char *argv[])
@@ -28,7 +30,11 @@ int main(int argc, char *argv[])
 		ProgrammUebersetzung.load(QString("%1_%2").arg(PROGRAMM).arg(QLocale::system().name()),QLibraryInfo::location(QLibraryInfo::TranslationsPath));
 		Qt.installTranslator(&QtUebersetzung);
 		Qt.installTranslator(&ProgrammUebersetzung);
-		DlgHaupt Haupt;
-		Haupt.show();
+		QMainWindow *Haupt;
+		if(qApp->arguments().contains("--editor",Qt::CaseInsensitive))
+			Haupt=new DlgEditor();
+		else
+			Haupt=new DlgHaupt();
+		Haupt->show();
 		return Qt.exec();
 }

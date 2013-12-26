@@ -15,25 +15,30 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#ifndef DLGGEFAHRENSYMBOL_H
-#define DLGGEFAHRENSYMBOL_H
+#include <QtGui>
 
-#include "ui_Gefahrensymbol.h"
+#include "Hilfsfunktionen.h"
 
-class QSvgWidget;
-class DlgGefahrensymbol : public QDialog, private Ui::DlgGefahrensymbol
+Hilfsfunktionen::Hilfsfunktionen(QObject *eltern) :	QObject(eltern)
 {
-		Q_OBJECT
+}
+void Hilfsfunktionen::FensterZentrieren(QMainWindow *fenster)
+{
+	QDesktopWidget *Arbeitsplatz = QApplication::desktop();
 
-	public:
-		explicit	DlgGefahrensymbol(QWidget *eltern = 0);
-		void		SymbolSetzen(const QString &dateiname);
+	int Bildschirmbreite, Breite;
+	int Bildschirmhoehe, Hoehe;
+	int x, y;
+	QSize Fenstergroesse;
 
-	private:
-		QSvgWidget	*K_Symbolanzeige;
+	Bildschirmbreite = Arbeitsplatz->width();
+	Bildschirmhoehe = Arbeitsplatz->height();
 
-	protected:
-		void		changeEvent(QEvent *e);
-};
+	Fenstergroesse = fenster->size();
+	Breite = Fenstergroesse.width();
+	Hoehe = Fenstergroesse.height();
 
-#endif // DLGGEFAHRENSYMBOL_H
+	x = (Bildschirmbreite - Breite) / 2;
+	y = (Bildschirmhoehe - Hoehe) / 2;
+	fenster->move ( x, y );
+}

@@ -19,6 +19,7 @@
 #define DLGWARNTAFEL_H
 
 #include "ui_Warntafel.h"
+
 class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
 {
 		Q_OBJECT

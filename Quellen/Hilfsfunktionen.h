@@ -15,25 +15,23 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#ifndef DLGGEFAHRENSYMBOL_H
-#define DLGGEFAHRENSYMBOL_H
+#ifndef HILFSFUNKTIONEN_H
+#define HILFSFUNKTIONEN_H
 
-#include "ui_Gefahrensymbol.h"
+#include <QObject>
 
-class QSvgWidget;
-class DlgGefahrensymbol : public QDialog, private Ui::DlgGefahrensymbol
+class QMainWindow;
+class Hilfsfunktionen : public QObject
 {
 		Q_OBJECT
-
 	public:
-		explicit	DlgGefahrensymbol(QWidget *eltern = 0);
-		void		SymbolSetzen(const QString &dateiname);
+		explicit Hilfsfunktionen(QObject *eltern = 0);
+		static void FensterZentrieren(QMainWindow *fenster);
 
-	private:
-		QSvgWidget	*K_Symbolanzeige;
+	signals:
 
-	protected:
-		void		changeEvent(QEvent *e);
+	public slots:
+
 };
 
-#endif // DLGGEFAHRENSYMBOL_H
+#endif // HILFSFUNKTIONEN_H
