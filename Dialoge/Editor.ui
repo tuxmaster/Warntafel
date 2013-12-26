@@ -18,108 +18,148 @@
     <normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QGroupBox" name="boxDatenbanken">
-      <property name="title">
-       <string>Datenbanken</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <layout class="QFormLayout" name="formLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="schildGefahrenzettel">
-           <property name="text">
-            <string>Gefahrenzettel:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout">
+     <widget class="QStackedWidget" name="Stapel">
+      <widget class="QWidget" name="Datenbanken">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QGroupBox" name="boxDatenbanken">
+          <property name="title">
+           <string>Datenbanken</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QLineEdit" name="txtGefahrenzettel"/>
-           </item>
-           <item>
-            <widget class="QToolButton" name="sfGefahrenzettelpfad">
-             <property name="text">
-              <string>...</string>
-             </property>
-            </widget>
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="schildGefahrenzettel">
+               <property name="text">
+                <string>Gefahrenzettel:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QLineEdit" name="txtGefahrenzettel"/>
+               </item>
+               <item>
+                <widget class="QToolButton" name="sfGefahrenzettelpfad">
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="schildGefahrgutnummern">
+               <property name="text">
+                <string>Gefahrgutnummern:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QLineEdit" name="txtGefahrgutnummern"/>
+               </item>
+               <item>
+                <widget class="QToolButton" name="sfGefahrgutnummernpfad">
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="schildUNNummern">
+               <property name="text">
+                <string>UN Nummern:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QLineEdit" name="txtUNNummern"/>
+               </item>
+               <item>
+                <widget class="QToolButton" name="sfUNNummernpfad">
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
            </item>
           </layout>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="schildGefahrgutnummern">
-           <property name="text">
-            <string>Gefahrgutnummern:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QLineEdit" name="txtGefahrgutnummern"/>
-           </item>
-           <item>
-            <widget class="QToolButton" name="sfGefahrgutnummernpfad">
-             <property name="text">
-              <string>...</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="schildUNNummern">
-           <property name="text">
-            <string>UN Nummern:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <widget class="QLineEdit" name="txtUNNummern"/>
-           </item>
-           <item>
-            <widget class="QToolButton" name="sfUNNummernpfad">
-             <property name="text">
-              <string>...</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTableView" name="Tabelle">
-      <property name="selectionMode">
-       <enum>QAbstractItemView::SingleSelection</enum>
-      </property>
-      <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectRows</enum>
-      </property>
-      <attribute name="horizontalHeaderStretchLastSection">
-       <bool>true</bool>
-      </attribute>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="sfZeileEinfuegen">
-      <property name="text">
-       <string>Zeile einfügen</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="sfZeileLoeschen">
-      <property name="text">
-       <string>Aktuelle Zeile löschen</string>
-      </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableView" name="Tabelle">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="sfZeileEinfuegen">
+          <property name="text">
+           <string>Zeile einfügen</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="sfZeileLoeschen">
+          <property name="text">
+           <string>Aktuelle Zeile löschen</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Gefahrgutklassensymbole">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="schildSymboldatei">
+            <property name="text">
+             <string>Symboldatei:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLineEdit" name="txtSymboldatei"/>
+            </item>
+            <item>
+             <widget class="QToolButton" name="sfSymbolfpad">
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="txtSymbole"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -158,13 +198,31 @@
      <addaction name="action_UN_NummernLaden"/>
      <addaction name="action_UN_NummernSpeichern"/>
     </widget>
+    <addaction name="action_DatenbankenAktivieren"/>
+    <addaction name="separator"/>
     <addaction name="menu_Gefahrenzettel"/>
     <addaction name="menu_Stoffgruppen"/>
     <addaction name="menu_UN_Nummern"/>
     <addaction name="separator"/>
     <addaction name="action_Beenden"/>
    </widget>
+   <widget class="QMenu" name="menu_Symbole">
+    <property name="title">
+     <string>&amp;Symbole</string>
+    </property>
+    <widget class="QMenu" name="menu_Gefahrgutklasse">
+     <property name="title">
+      <string>&amp;Gefahrgutklasse</string>
+     </property>
+     <addaction name="action_GefahrgutklasseLaden"/>
+     <addaction name="action_GefahrgutklasseSpeichern"/>
+    </widget>
+    <addaction name="action_SymboleAktivieren"/>
+    <addaction name="separator"/>
+    <addaction name="menu_Gefahrgutklasse"/>
+   </widget>
    <addaction name="menu_Tabellen"/>
+   <addaction name="menu_Symbole"/>
   </widget>
   <action name="action_Beenden">
    <property name="text">
@@ -197,6 +255,26 @@
    </property>
   </action>
   <action name="action_UN_NummernSpeichern">
+   <property name="text">
+    <string>&amp;speichern</string>
+   </property>
+  </action>
+  <action name="action_GefahrgutklasseLaden">
+   <property name="text">
+    <string>&amp;laden</string>
+   </property>
+  </action>
+  <action name="action_DatenbankenAktivieren">
+   <property name="text">
+    <string>&amp;aktivieren</string>
+   </property>
+  </action>
+  <action name="action_SymboleAktivieren">
+   <property name="text">
+    <string>&amp;aktivieren</string>
+   </property>
+  </action>
+  <action name="action_GefahrgutklasseSpeichern">
    <property name="text">
     <string>&amp;speichern</string>
    </property>

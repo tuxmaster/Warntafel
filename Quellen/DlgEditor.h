@@ -42,6 +42,13 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 		void				on_sfGefahrenzettelpfad_clicked();
 		void				on_sfGefahrgutnummernpfad_clicked();
 		void				on_sfUNNummernpfad_clicked();
+		void				on_sfSymbolfpad_clicked();
+
+		void				on_action_DatenbankenAktivieren_triggered();
+		void				on_action_SymboleAktivieren_triggered();
+
+		void				on_action_GefahrgutklasseLaden_triggered();
+		void				on_action_GefahrgutklasseSpeichern_triggered();
 
 		void				on_action_GefahrenzettelLaden_triggered();
 		void				on_action_StoffgruppenLaden_triggered();

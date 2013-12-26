@@ -39,6 +39,7 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 	txtGefahrenzettel->setText(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
 	txtGefahrgutnummern->setText(QString("%1%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
 	txtUNNummern->setText(QString("%1%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
+	txtSymboldatei->setText(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(QString(GEFAHRENZETTELSYMBOL).replace(".rcc",".qrc")));
 
 	K_UNNummernmodell=0;
 	K_Gefahrenzettelmodell=0;
@@ -73,6 +74,11 @@ void DlgEditor::on_sfUNNummernpfad_clicked()
 {
 	if(K_Dateiauswahl->exec())
 		txtUNNummern->setText(K_Dateiauswahl->selectedFiles()[0]);
+}
+void DlgEditor::on_sfSymbolfpad_clicked()
+{
+	if(K_Dateiauswahl->exec())
+		txtSymboldatei->setText(K_Dateiauswahl->selectedFiles()[0]);
 }
 void DlgEditor::on_action_GefahrenzettelLaden_triggered()
 {
@@ -187,4 +193,37 @@ void DlgEditor::on_sfZeileLoeschen_clicked()
 		return;
 	else
 		Modell->removeRow(Tabelle->currentIndex().row());
+}
+void DlgEditor::on_action_DatenbankenAktivieren_triggered()
+{
+	Stapel->setCurrentWidget(Datenbanken);
+}
+
+void DlgEditor::on_action_SymboleAktivieren_triggered()
+{
+	Stapel->setCurrentWidget(Gefahrgutklassensymbole);
+}
+void DlgEditor::on_action_GefahrgutklasseLaden_triggered()
+{
+	QFile Datei(txtSymboldatei->text());
+	if(!Datei.open(QIODevice::ReadOnly))
+	{
+		Fehler(trUtf8("Kann Datei %1 nicht öffnen.\n%2").arg(txtSymboldatei->text()).arg(Datei.errorString()));
+		return;
+	}
+	QTextStream Datenstrom(&Datei);
+	txtSymbole->setPlainText(Datenstrom.readAll());
+	Datei.close();
+}
+void DlgEditor::on_action_GefahrgutklasseSpeichern_triggered()
+{
+	QFile Datei(txtSymboldatei->text());
+	if(!Datei.open(QIODevice::WriteOnly|QIODevice::Truncate))
+	{
+		Fehler(tr("Konnte die Datei %1 nicht schreiben.\n%2").arg(txtSymboldatei->text()).arg(Datei.errorString()));
+		return;
+	}
+	QTextStream Datenstrom(&Datei);
+	Datenstrom<<txtSymbole->toPlainText();
+	Datei.close();
 }
