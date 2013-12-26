@@ -88,7 +88,7 @@ void DlgHaupt::changeEvent(QEvent *e)
 void DlgHaupt::Fehler(const QString &fehler)
 {
 	QMessageBox::critical(this,tr("Fehler"),fehler);
-	exit(-1);
+	exit(1);
 }
 
 void DlgHaupt::on_sfInfo_clicked()
