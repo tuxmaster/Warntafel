@@ -25,7 +25,7 @@ Kennzahltester::Kennzahltester(bool unnummer,QObject *eltern):QValidator(eltern)
 	if(K_UNNummer)
 	{
 		K_Datenbank=UNNUMMERNDB;
-		K_Tabelle="UNNummern";
+		K_Tabelle="UN_Nummern";
 	}
 	else
 	{

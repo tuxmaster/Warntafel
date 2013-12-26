@@ -33,7 +33,7 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
 		return;
 	}
-	if(!GefahenkennzahlenLaden())
+	if((!GefahenkennzahlenLaden()) || (!UNNummerLaden()))
 		return;
 	K_SymbolAnzeigen=new DlgGefahrensymbol(this);
 	K_Gefahrgutklassemodell=new ModellGefahrgutklasse(this);
@@ -134,6 +134,17 @@ bool DlgHaupt::GefahenkennzahlenLaden()
 	if(!DB.open())
 	{
 		Fehler(trUtf8("Konnte die Gefahrennummern nicht laden.\n%1").arg(DB.lastError().text()));
+		return false;
+	}
+	return true;
+}
+bool DlgHaupt::UNNummerLaden()
+{
+	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",UNNUMMERNDB);
+	DB.setDatabaseName(QString("%1%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
+	if(!DB.open())
+	{
+		Fehler(trUtf8("Konnte die UN Nummern nicht laden.\n%1").arg(DB.lastError().text()));
 		return false;
 	}
 	return true;
