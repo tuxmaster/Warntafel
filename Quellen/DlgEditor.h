@@ -52,6 +52,7 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 		void				on_action_UN_NummernSpeichern_triggered();
 
 		void				on_sfZeileEinfuegen_clicked();
+		void				on_sfZeileLoeschen_clicked();
 
 	protected:
 		void				changeEvent(QEvent *e);

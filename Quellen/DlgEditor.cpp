@@ -180,3 +180,11 @@ void DlgEditor::on_sfZeileEinfuegen_clicked()
 		Tabelle->scrollTo(Modell->index(Modell->rowCount()-1,1));
 	}
 }
+void DlgEditor::on_sfZeileLoeschen_clicked()
+{
+	QSqlTableModel *Modell=(QSqlTableModel*)Tabelle->model();
+	if(!Modell)
+		return;
+	else
+		Modell->removeRow(Tabelle->currentIndex().row());
+}
