@@ -26,6 +26,26 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 {
 	setupUi(this);
 	Hilfsfunktionen::FensterZentrieren(this);
+
+	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
+	{
+		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
+		return;
+	}
+
+	K_Dateiauswahl=new QFileDialog(this);
+	K_Dateiauswahl->setDirectory(GEFAHRENZETTELPFAD);
+
+	txtGefahrenzettel->setText(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
+	txtGefahrgutnummern->setText(QString("%1%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
+	txtUNNummern->setText(QString("%1%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
+
+	K_UNNummernmodell=0;
+	K_Gefahrenzettelmodell=0;
+	K_Gefahrgutnummernmodell=0;
+
+	Tabelle->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+	Tabelle->horizontalHeader()->setStretchLastSection(true);
 }
 
 void DlgEditor::changeEvent(QEvent *e)
@@ -39,4 +59,94 @@ void DlgEditor::changeEvent(QEvent *e)
 		default:
 			break;
 	}
+}
+void DlgEditor::on_sfGefahrenzettelpfad_clicked()
+{
+	if(K_Dateiauswahl->exec())
+		txtGefahrenzettel->setText(K_Dateiauswahl->selectedFiles()[0]);
+}
+void DlgEditor::on_sfGefahrgutnummernpfad_clicked()
+{
+	if(K_Dateiauswahl->exec())
+		txtGefahrgutnummern->setText(K_Dateiauswahl->selectedFiles()[0]);
+}
+void DlgEditor::on_sfUNNummernpfad_clicked()
+{
+	if(K_Dateiauswahl->exec())
+		txtUNNummern->setText(K_Dateiauswahl->selectedFiles()[0]);
+}
+void DlgEditor::on_action_GefahrenzettelLaden_triggered()
+{
+	if(!K_Gefahrenzettelmodell)
+	{
+		QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
+		DB.setDatabaseName(txtGefahrenzettel->text());
+		if(!DB.open())
+		{
+			Fehler(trUtf8("Konnte die Gefahentafel DB nicht laden.\n%1").arg(DB.lastError().text()));
+			Tabelle->setModel(0);
+			return;
+		}
+		K_Gefahrenzettelmodell=new QSqlTableModel(this,DB);
+		K_Gefahrenzettelmodell->setTable("Zettel");
+		K_Gefahrenzettelmodell->setEditStrategy(QSqlTableModel::OnManualSubmit);
+		K_Gefahrenzettelmodell->select();
+	}
+	Tabelle->setModel(K_Gefahrenzettelmodell);
+}
+void DlgEditor::on_action_StoffgruppenLaden_triggered()
+{
+	if(!K_Gefahrgutnummernmodell)
+	{
+		QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRGUTNUMMERNDB);
+		DB.setDatabaseName(txtGefahrgutnummern->text());
+		if(!DB.open())
+		{
+			Fehler(trUtf8("Konnte die Stoffruppen DB laden.\n%1").arg(DB.lastError().text()));
+			Tabelle->setModel(0);
+			return;
+		}
+		K_Gefahrgutnummernmodell=new QSqlTableModel(this,DB);
+		K_Gefahrgutnummernmodell->setTable("Gefahrgutnummern");
+		K_Gefahrgutnummernmodell->setEditStrategy(QSqlTableModel::OnManualSubmit);
+		K_Gefahrgutnummernmodell->select();
+	}
+	Tabelle->setModel(K_Gefahrgutnummernmodell);
+}
+void DlgEditor::on_action_UN_NummernLaden_triggered()
+{
+	if(!K_UNNummernmodell)
+	{
+		QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",UNNUMMERNDB);
+		DB.setDatabaseName(txtUNNummern->text());
+		if(!DB.open())
+		{
+			Fehler(trUtf8("Konnte die UN Nummern DB laden.\n%1").arg(DB.lastError().text()));
+			Tabelle->setModel(0);
+			return;
+		}
+		K_UNNummernmodell=new QSqlTableModel(this,DB);
+		K_UNNummernmodell->setTable("UN_Nummern");
+		K_UNNummernmodell->setEditStrategy(QSqlTableModel::OnManualSubmit);
+		K_UNNummernmodell->select();
+	}
+	Tabelle->setModel(K_UNNummernmodell);
+}
+void DlgEditor::on_action_GefahrenzettelSpeichern_triggered()
+{
+
+}
+void DlgEditor::on_action_StoffgruppenSpeichern_triggered()
+{
+
+}
+void DlgEditor::on_action_UN_NummernSpeichern_triggered()
+{
+
+}
+
+void DlgEditor::Fehler(const QString &fehler)
+{
+	QMessageBox::critical(this,tr("Fehler"),fehler);
+	exit(1);
 }

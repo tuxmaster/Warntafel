@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>596</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,20 +17,186 @@
    <iconset resource="../Resourcen.qrc">
     <normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</normaloff>:/Bilder/Bilder/Sonstige/Gefahrtafel.svg</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QGroupBox" name="boxDatenbanken">
+      <property name="title">
+       <string>Datenbanken</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="schildGefahrenzettel">
+           <property name="text">
+            <string>Gefahrenzettel:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLineEdit" name="txtGefahrenzettel"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="sfGefahrenzettelpfad">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="schildGefahrgutnummern">
+           <property name="text">
+            <string>Gefahrgutnummern:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLineEdit" name="txtGefahrgutnummern"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="sfGefahrgutnummernpfad">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="schildUNNummern">
+           <property name="text">
+            <string>UN Nummern:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLineEdit" name="txtUNNummern"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="sfUNNummernpfad">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableView" name="Tabelle"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="Menueleiste">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>596</width>
      <height>27</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_Tabellen">
+    <property name="title">
+     <string>&amp;Tabellen</string>
+    </property>
+    <widget class="QMenu" name="menu_Gefahrenzettel">
+     <property name="title">
+      <string>&amp;Gefahrenzettel</string>
+     </property>
+     <addaction name="action_GefahrenzettelLaden"/>
+     <addaction name="action_GefahrenzettelSpeichern"/>
+    </widget>
+    <widget class="QMenu" name="menu_Stoffgruppen">
+     <property name="title">
+      <string>&amp;Stoffgruppen</string>
+     </property>
+     <addaction name="action_StoffgruppenLaden"/>
+     <addaction name="action_StoffgruppenSpeichern"/>
+    </widget>
+    <widget class="QMenu" name="menu_UN_Nummern">
+     <property name="title">
+      <string>&amp;UN Nummern</string>
+     </property>
+     <addaction name="action_UN_NummernLaden"/>
+     <addaction name="action_UN_NummernSpeichern"/>
+    </widget>
+    <addaction name="menu_Gefahrenzettel"/>
+    <addaction name="menu_Stoffgruppen"/>
+    <addaction name="menu_UN_Nummern"/>
+    <addaction name="separator"/>
+    <addaction name="action_Beenden"/>
+   </widget>
+   <addaction name="menu_Tabellen"/>
   </widget>
+  <action name="action_Beenden">
+   <property name="text">
+    <string>&amp;Beenden</string>
+   </property>
+  </action>
+  <action name="action_GefahrenzettelLaden">
+   <property name="text">
+    <string>&amp;laden</string>
+   </property>
+  </action>
+  <action name="action_GefahrenzettelSpeichern">
+   <property name="text">
+    <string>&amp;speichern</string>
+   </property>
+  </action>
+  <action name="action_StoffgruppenLaden">
+   <property name="text">
+    <string>&amp;laden</string>
+   </property>
+  </action>
+  <action name="action_StoffgruppenSpeichern">
+   <property name="text">
+    <string>&amp;speichern</string>
+   </property>
+  </action>
+  <action name="action_UN_NummernLaden">
+   <property name="text">
+    <string>&amp;laden</string>
+   </property>
+  </action>
+  <action name="action_UN_NummernSpeichern">
+   <property name="text">
+    <string>&amp;speichern</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../Resourcen.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>action_Beenden</sender>
+   <signal>triggered()</signal>
+   <receiver>DlgEditor</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

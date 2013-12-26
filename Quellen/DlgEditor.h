@@ -20,15 +20,39 @@
 
 #include "ui_Editor.h"
 
+class QSqlTableModel;
+class QFileDialog;
 class DlgEditor : public QMainWindow, private Ui::DlgEditor
 {
 		Q_OBJECT
 
 	public:
-		explicit DlgEditor(QWidget *eltern = 0);
+		explicit			DlgEditor(QWidget *eltern = 0);
+
+	private:
+
+		QSqlTableModel*		K_UNNummernmodell;
+		QSqlTableModel*		K_Gefahrenzettelmodell;
+		QSqlTableModel*		K_Gefahrgutnummernmodell;
+		QFileDialog*		K_Dateiauswahl;
+
+	private Q_SLOTS:
+		void				Fehler(const QString &fehler);
+
+		void				on_sfGefahrenzettelpfad_clicked();
+		void				on_sfGefahrgutnummernpfad_clicked();
+		void				on_sfUNNummernpfad_clicked();
+
+		void				on_action_GefahrenzettelLaden_triggered();
+		void				on_action_StoffgruppenLaden_triggered();
+		void				on_action_UN_NummernLaden_triggered();
+
+		void				on_action_GefahrenzettelSpeichern_triggered();
+		void				on_action_StoffgruppenSpeichern_triggered();
+		void				on_action_UN_NummernSpeichern_triggered();
 
 	protected:
-		void changeEvent(QEvent *e);
+		void				changeEvent(QEvent *e);
 };
 
 #endif // DLGEDITOR_H
