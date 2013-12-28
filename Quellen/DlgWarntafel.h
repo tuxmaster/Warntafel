@@ -28,7 +28,12 @@ class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
 		explicit				DlgWarntafel(QWidget *eltern = 0);
 
 	Q_SIGNALS:
-		void					DatenStimmig();
+		void					DatenStimmig(const QString &gefahr,const QString &stoff);
+		void					Datenbankfehler(const QString &meldung);
+
+	private:
+		void					TexteLaden();
+		void					SQLFehler(const QString &db,const QString &fehler);
 
 	private Q_SLOTS:
 		void					on_txtUN_Nummer_returnPressed();

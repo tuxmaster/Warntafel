@@ -16,7 +16,9 @@
 */
 
 #include <QtGui>
+#include <QtSql>
 
+#include "Vorgaben.h"
 #include "DlgWarntafel.h"
 #include "Kennzahltester.h"
 
@@ -46,11 +48,65 @@ void DlgWarntafel::changeEvent(QEvent *e)
 void DlgWarntafel::on_txtUN_Nummer_returnPressed()
 {
 	if(txtGefahrgutnummer->hasAcceptableInput())
-		Q_EMIT DatenStimmig();
+		TexteLaden();
 }
 void DlgWarntafel::Fehler(const QString &fehler)
 {
 	QObject* Absender =sender();
 	Absender->disconnect(this,SLOT(Fehler(QString)));
 	QMessageBox::critical(this,tr("Fehler"),fehler);
+}
+void DlgWarntafel::TexteLaden()
+{
+	QSqlDatabase DB_Gefahr = QSqlDatabase::database(GEFAHRGUTNUMMERNDB,false);
+	QSqlDatabase DB_Stoff = QSqlDatabase::database(UNNUMMERNDB,false);
+
+	QString Gefahr;
+	QString Stoff;
+
+	if(!DB_Gefahr.isValid())
+	{
+		SQLFehler("Gefahrgutnummer",DB_Gefahr.lastError().text());
+		return;
+	}
+	if(!DB_Stoff.isValid())
+	{
+		SQLFehler("UNNummern",DB_Stoff.lastError().text());
+		return;
+	}
+	QSqlQuery Abfrage(DB_Gefahr);
+	if(!Abfrage.prepare(QString("select Beschreibung from Gefahrgutnummern where Nummer = ?")))
+	{
+		SQLFehler("Gefahrgutnummer",Abfrage.lastError().text());
+		return;
+	}
+	Abfrage.bindValue(0,txtGefahrgutnummer->text().toUpper());
+	if(!Abfrage.exec())
+	{
+		SQLFehler("Gefahrgutnummer",Abfrage.lastError().text());
+		return;
+	}
+	while (Abfrage.next())
+		Gefahr=Abfrage.value(0).toString();
+
+	Abfrage=QSqlQuery(DB_Stoff);
+	if(!Abfrage.prepare(QString("select Beschreibung from UN_Nummern where Nummer = ?")))
+	{
+		SQLFehler("UN Nummer",Abfrage.lastError().text());
+		return;
+	}
+	Abfrage.bindValue(0,txtUN_Nummer->text().toInt());
+	if(!Abfrage.exec())
+	{
+		SQLFehler("UN Nummer",Abfrage.lastError().text());
+		return;
+	}
+	while (Abfrage.next())
+		Stoff=Abfrage.value(0).toString();
+
+	Q_EMIT DatenStimmig(Gefahr,Stoff);
+}
+void DlgWarntafel::SQLFehler(const QString &db, const QString &fehler)
+{
+	Q_EMIT Datenbankfehler(tr("Fehler beim Zugriff die die %1 Datenbank.\n%2").arg(db).arg(fehler));
 }

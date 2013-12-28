@@ -48,7 +48,8 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 
 	K_Warntafel=new DlgWarntafel(this);
 	K_TafelZeigen=new DlgWarntafelAnzeigen(this);
-	connect(K_Warntafel,SIGNAL(DatenStimmig()),this,SLOT(TafelAusgefuellt()));
+	connect(K_Warntafel,SIGNAL(DatenStimmig(QString,QString)),this,SLOT(TafelAusgefuellt(QString,QString)));
+	connect(K_Warntafel,SIGNAL(Datenbankfehler(QString)),this,SLOT(Fehler(QString)));
 	QVBoxLayout *Ansicht=new QVBoxLayout(Warntafel);
 	Ansicht->addWidget(K_Warntafel);
 	Warntafel->setLayout(Ansicht);
@@ -104,8 +105,9 @@ void DlgHaupt::GefahrenzettelSymbolAnzeige(const QModelIndex &welches)
 		K_SymbolAnzeigen->exec();
 	}
 }
-void DlgHaupt::TafelAusgefuellt()
+void DlgHaupt::TafelAusgefuellt(const QString &gefahr,const QString &stoff)
 {
+	K_TafelZeigen->TextSetzen(gefahr,stoff);
 	K_TafelZeigen->exec();
 }
 bool DlgHaupt::GefahenkennzahlenLaden()

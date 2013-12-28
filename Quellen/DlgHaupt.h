@@ -47,7 +47,7 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 	private Q_SLOTS:
 		void					Fehler(const QString &fehler);
 		void					GefahrenzettelSymbolAnzeige(const QModelIndex &welches);
-		void					TafelAusgefuellt();
+		void					TafelAusgefuellt(const QString &gefahr,const QString &stoff);
 
 	protected:
 		void					changeEvent(QEvent *e);

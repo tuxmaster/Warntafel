@@ -34,3 +34,8 @@ void DlgWarntafelAnzeigen::changeEvent(QEvent *e)
 			break;
 	}
 }
+void DlgWarntafelAnzeigen::TextSetzen(const QString &gefahr, const QString &stoff)
+{
+	txtStoffgruppe->setText(gefahr);
+	txtStoff->setText(stoff);
+}

@@ -26,6 +26,7 @@ class DlgWarntafelAnzeigen : public QDialog, private Ui::DlgWarntafelAnzeigen
 
 	public:
 		explicit DlgWarntafelAnzeigen(QWidget *eltern = 0);
+		void TextSetzen(const QString &gefahr,const QString &stoff);
 
 	protected:
 		void changeEvent(QEvent *e);
