@@ -15,6 +15,12 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtCore>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+	#include <QWidget>
+	#include <QMessageBox>
+#endif
+
 #include <QtGui>
 #include <QtSql>
 
@@ -107,5 +113,5 @@ void DlgWarntafel::TexteLaden()
 }
 void DlgWarntafel::SQLFehler(const QString &db, const QString &fehler)
 {
-	Q_EMIT Datenbankfehler(tr("Fehler beim Zugriff die die %1 Datenbank.\n%2").arg(db).arg(fehler));
+	Q_EMIT Datenbankfehler(tr("Fehler beim Zugriff die %1 Datenbank.\n%2").arg(db).arg(fehler));
 }

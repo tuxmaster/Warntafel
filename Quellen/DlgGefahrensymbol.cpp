@@ -15,6 +15,10 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtCore>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+	#include <QWidget>
+#endif
 #include <QtGui>
 #include <QtSvg>
 

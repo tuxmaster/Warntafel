@@ -19,8 +19,8 @@
 #define HILFSFUNKTIONEN_H
 
 #include <QObject>
+#include <QMainWindow>
 
-class QMainWindow;
 class Hilfsfunktionen : public QObject
 {
 		Q_OBJECT

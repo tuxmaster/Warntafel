@@ -15,6 +15,11 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtCore>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+	#include <QWidget>
+	#include <QMessageBox>
+#endif
 #include <QtGui>
 #include <QtSql>
 
@@ -42,8 +47,13 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	K_Gefahrgutklassemodell=new ModellGefahrgutklasse(this);
 	connect(K_Gefahrgutklassemodell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(K_Gefahrgutklassemodell);
+#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+#else
+	tbGefahrenzettel->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+	tbGefahrenzettel->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+#endif
 	connect(tbGefahrenzettel,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(GefahrenzettelSymbolAnzeige(QModelIndex)));
 
 	K_Warntafel=new DlgWarntafel(this);

@@ -18,12 +18,12 @@
 #ifndef DLGEDITOR_H
 #define DLGEDITOR_H
 
+#include <QFileDialog>
 #include <QProcess>
 
 #include "ui_Editor.h"
 
 class QSqlTableModel;
-class QFileDialog;
 
 class DlgEditor : public QMainWindow, private Ui::DlgEditor
 {

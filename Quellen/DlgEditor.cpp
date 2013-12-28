@@ -15,6 +15,11 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+#include <QtCore>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+	#include <QWidget>
+	#include <QMessageBox>
+#endif
 #include <QtGui>
 #include <QtSql>
 
@@ -47,8 +52,11 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 	K_UNNummernmodell=0;
 	K_Gefahrenzettelmodell=0;
 	K_Gefahrgutnummernmodell=0;
-
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+	Tabelle->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+#else
 	Tabelle->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
+#endif
 }
 
 void DlgEditor::changeEvent(QEvent *e)

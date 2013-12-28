@@ -15,8 +15,14 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
-#include <QtSql>
+#include <QtCore>
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#else
+	#include <QWidget>
+#endif
+
 #include <QtGui>
+#include <QtSql>
 
 #include "Modellgefahrgutklasse.h"
 #include "Vorgaben.h"
