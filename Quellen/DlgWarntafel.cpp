@@ -62,7 +62,7 @@ void DlgWarntafel::TexteLaden()
 	QSqlDatabase DB_Stoff = QSqlDatabase::database(UNNUMMERNDB,false);
 
 	QString Gefahr;
-	QString Stoff;
+	QStringList Stoff;
 
 	if(!DB_Gefahr.isValid())
 	{
@@ -102,9 +102,8 @@ void DlgWarntafel::TexteLaden()
 		return;
 	}
 	while (Abfrage.next())
-		Stoff=Abfrage.value(0).toString();
-
-	Q_EMIT DatenStimmig(Gefahr,Stoff);
+		Stoff.append(Abfrage.value(0).toString());
+	Q_EMIT DatenStimmig(Gefahr,Stoff.join("\n"));
 }
 void DlgWarntafel::SQLFehler(const QString &db, const QString &fehler)
 {
