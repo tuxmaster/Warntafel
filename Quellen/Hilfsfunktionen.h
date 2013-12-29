@@ -27,6 +27,9 @@ class Hilfsfunktionen : public QObject
 	public:
 		explicit Hilfsfunktionen(QObject *eltern = 0);
 		static void FensterZentrieren(QMainWindow *fenster);
+#if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
+		static void EditorMitLoeschen(QObject *pfad);
+#endif
 
 	signals:
 

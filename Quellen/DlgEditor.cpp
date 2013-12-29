@@ -31,6 +31,9 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 {
 	setupUi(this);
 	Hilfsfunktionen::FensterZentrieren(this);
+#if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
+	Hilfsfunktionen::EditorMitLoeschen(this);
+#endif
 
 	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
 	{
@@ -58,7 +61,6 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 	Tabelle->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
 #endif
 }
-
 void DlgEditor::changeEvent(QEvent *e)
 {
 	QMainWindow::changeEvent(e);
