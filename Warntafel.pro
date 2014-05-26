@@ -19,7 +19,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG  += warn_on
 
-TARGET = Warntafeln
+TARGET = Warntafel
 UI_DIR=tmp/ui
 MOC_DIR=tmp/moc
 OBJECTS_DIR=tmp/obj
@@ -28,13 +28,13 @@ RCC_DIR=tmp/rcc
 Doku.commands = doxygen
 Doku.depends = $(TARGET)
 
-GefahrenZettel.commands = ./GefahrenzettelErstellen.sh
-GefahrenZettel.depends = $(TARGET)
+GefahrenZettelDB.commands = ./GefahrenzettelErstellen.sh
+GefahrenZettelDB.depends = $(TARGET)
 
-Warntafel.commands = ./WarntafelnErstellen.sh
-Warntafel.depends = $(TARGET)
+WarntafelDB.commands = ./WarntafelnErstellen.sh
+WarntafelDB.depends = $(TARGET)
 
-QMAKE_EXTRA_TARGETS += Doku GefahrenZettel Warntafel
+QMAKE_EXTRA_TARGETS += Doku GefahrenZettelDB WarntafelDB
 
 HEADERS += \
     Quellen/DlgHaupt.h \
@@ -71,4 +71,5 @@ RESOURCES += \
     Resourcen.qrc
 
 OTHER_FILES += Gefahrenzettel.qrc \
-    Doxyfile
+    Doxyfile \
+    Warntafel.desktop

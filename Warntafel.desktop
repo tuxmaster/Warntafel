@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Warntafel
+GenericName=Warntafelanzeiger
+Comment=Zeigt die Bedeutung der Warntafeln an.
+Exec=Warntafel
+Icon=Warntafel
+Terminal=false
+Type=Application
