@@ -19,7 +19,7 @@
 #define VORGABEN_H
 
 #define PROGRAMM				"Warntafel"
-#define VERSION					"0.0.2"
+#define VERSION					"0.0.3"
 #define BILDPUFFER_KB			102400
 
 #define GEFAHRENZETTEL			"Gefahrenzettel.dat"

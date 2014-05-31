@@ -47,10 +47,10 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 	K_Dateiauswahl=new QFileDialog(this);
 	K_Dateiauswahl->setDirectory(GEFAHRENZETTELPFAD);
 
-	txtGefahrenzettel->setText(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
-	txtGefahrgutnummern->setText(QString("%1%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
-	txtUNNummern->setText(QString("%1%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
-	txtSymboldatei->setText(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(QString(GEFAHRENZETTELSYMBOL).replace(".rcc",".qrc")));
+	txtGefahrenzettel->setText(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
+	txtGefahrgutnummern->setText(QString("%1/%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
+	txtUNNummern->setText(QString("%1/%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
+	txtSymboldatei->setText(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(QString(GEFAHRENZETTELSYMBOL).replace(".rcc",".qrc")));
 
 	K_UNNummernmodell=0;
 	K_Gefahrenzettelmodell=0;
