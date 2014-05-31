@@ -31,18 +31,18 @@ ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableMod
 {
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
 	K_SQLDaten=0;
-	DB.setDatabaseName(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
+	DB.setDatabaseName(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
 	if(!DB.open())
 	{
-		K_Hilfsfehlertext=trUtf8("Fehler beim Öffnen der Datenbank %1.\n%2").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL))
+		K_Hilfsfehlertext=trUtf8("Fehler beim Öffnen der Datenbank %1.\n%2").arg(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL))
 																			.arg(DB.lastError().text());
 		QTimer::singleShot(0,this,SLOT(Hilfsfehler()));
 	}
 	else
 	{
-		if (!QResource::registerResource(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL)))
+		if (!QResource::registerResource(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL)))
 		{
-			K_Hilfsfehlertext=tr("Konnte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL));
+			K_Hilfsfehlertext=tr("Konnte die Datei %1 mit den Symbolen nicht laden.").arg(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTELSYMBOL));
 			QTimer::singleShot(0,this,SLOT(Hilfsfehler()));
 			return;
 		}
