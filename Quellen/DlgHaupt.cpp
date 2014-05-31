@@ -123,7 +123,7 @@ void DlgHaupt::TafelAusgefuellt(const QString &gefahr,const QString &stoff)
 bool DlgHaupt::GefahenkennzahlenLaden()
 {
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRGUTNUMMERNDB);
-	DB.setDatabaseName(QString("%1%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
+	DB.setDatabaseName(QString("%1/%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
 	if(!DB.open())
 	{
 		Fehler(trUtf8("Konnte die Gefahrennummern nicht laden.\n%1").arg(DB.lastError().text()));
@@ -134,7 +134,7 @@ bool DlgHaupt::GefahenkennzahlenLaden()
 bool DlgHaupt::UNNummerLaden()
 {
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",UNNUMMERNDB);
-	DB.setDatabaseName(QString("%1%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
+	DB.setDatabaseName(QString("%1/%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
 	if(!DB.open())
 	{
 		Fehler(trUtf8("Konnte die UN Nummern nicht laden.\n%1").arg(DB.lastError().text()));
