@@ -35,11 +35,19 @@ if (linux-clang) {
 Doku.commands = doxygen
 Doku.depends = $(TARGET)
 
-GefahrenZettelDB.commands = ./GefahrenzettelErstellen.sh
+android {
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/tmp/resourcen
+    GefahrenZettelDB.commands = ./GefahrenzettelErstellen.sh android
+    WarntafelDB.commands = ./WarntafelnErstellen.sh android
+} else {
+    GefahrenZettelDB.commands = ./GefahrenzettelErstellen.sh
+    WarntafelDB.commands = ./WarntafelnErstellen.sh
+    HEADERS +=  Quellen/DlgEditor.h
+    SOURCES +=  Quellen/DlgEditor.cpp
+    FORMS   +=  Dialoge/Editor.ui
+}
 GefahrenZettelDB.depends = $(TARGET)
-
-WarntafelDB.commands = ./WarntafelnErstellen.sh
-WarntafelDB.depends = $(TARGET)
+ WarntafelDB.depends = $(TARGET)
 
 QMAKE_EXTRA_TARGETS += Doku GefahrenZettelDB WarntafelDB
 PRE_TARGETDEPS += GefahrenZettelDB WarntafelDB
@@ -52,7 +60,6 @@ HEADERS += \
     Quellen/DlgWarntafel.h \
     Quellen/DlgWarntafelAnzeigen.h \
     Quellen/Kennzahltester.h \
-    Quellen/DlgEditor.h \
     Quellen/Hilfsfunktionen.h
 
 SOURCES += \
@@ -63,15 +70,14 @@ SOURCES += \
     Quellen/DlgWarntafel.cpp \
     Quellen/DlgWarntafelAnzeigen.cpp \
     Quellen/Kennzahltester.cpp \
-    Quellen/DlgEditor.cpp \
     Quellen/Hilfsfunktionen.cpp
 
 FORMS += \
     Dialoge/Hauptfenster.ui \
     Dialoge/Gefahrensymbol.ui \
     Dialoge/Warntafel.ui \
-    Dialoge/WarntafelAnzeigen.ui \
-    Dialoge/Editor.ui
+    Dialoge/WarntafelAnzeigen.ui
+
 
 TRANSLATIONS +=Übersetzungen/Warntafel_en.ts
 
@@ -81,6 +87,3 @@ RESOURCES += \
 OTHER_FILES += Gefahrenzettel.qrc \
     Doxyfile \
     Warntafel.desktop
-android {
-    RESOURCES += Gefahrenzettel.qrc
-}

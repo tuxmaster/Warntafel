@@ -1,7 +1,10 @@
 tmp/
 bin/
+Doku/
+Android/
 .qmake*
 *.dat
 *.rcc
 Makefile
 *.pro.*
+*.json

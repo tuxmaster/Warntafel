@@ -1,0 +1,13 @@
+#!/bin/bash
+BUILD_TARGET=Android
+QT_HOME=/home/${USERNAME}/Android/qt-5.10.1-x86_64
+
+make distclean
+rm -rf $BUILD_TARGET
+${QT_HOME}/bin/qmake -spec android-clang
+make qmake_all
+mkdir -p tmp/resourcen/assets
+make -j4
+make install INSTALL_ROOT=$BUILD_TARGET
+${QT_HOME}/bin/androiddeployqt  --gradle --release --verbose --no-gdbserver --output $BUILD_TARGET
+

@@ -19,7 +19,9 @@
 #include <QtGui>
 
 #include "DlgHaupt.h"
+#ifndef Q_OS_ANDROID
 #include "DlgEditor.h"
+#endif
 #include "Vorgaben.h"
 
 int main(int argc, char *argv[])
@@ -28,15 +30,24 @@ int main(int argc, char *argv[])
 		QPixmapCache::setCacheLimit(BILDPUFFER_KB);
 		QTranslator QtUebersetzung;
 		QTranslator ProgrammUebersetzung;
-		QtUebersetzung.load(QString("qt_%1").arg(QLocale::system().name()),QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-		ProgrammUebersetzung.load(QString("%1_%2").arg(PROGRAMM).arg(QLocale::system().name()),QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+#ifndef Q_OS_ANDROID
+		QString Uebersetzungspfad=QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+#else
+		QString Uebersetzungspfad="assets:/";
+#endif
+		QtUebersetzung.load(QString("qt_%1").arg(QLocale::system().name()),Uebersetzungspfad);
+		ProgrammUebersetzung.load(QString("%1_%2").arg(PROGRAMM).arg(QLocale::system().name()),Uebersetzungspfad);
 		Qt.installTranslator(&QtUebersetzung);
 		Qt.installTranslator(&ProgrammUebersetzung);
 		QMainWindow *Haupt;
+#ifndef Q_OS_ANDROID
 		if(qApp->arguments().contains("--editor",Qt::CaseInsensitive))
 			Haupt=new DlgEditor();
 		else
 			Haupt=new DlgHaupt();
+#else
+		Haupt=new DlgHaupt();
+#endif
 		Haupt->show();
 		return Qt.exec();
 }

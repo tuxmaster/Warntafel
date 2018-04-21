@@ -23,7 +23,11 @@
 #define BILDPUFFER_KB			102400
 
 #define GEFAHRENZETTEL			"Gefahrenzettel.dat"
+#ifndef Q_OS_ANDROID
 #define GEFAHRENZETTELPFAD		"./"
+#else
+#define GEFAHRENZETTELPFAD		"assets:"
+#endif
 #define GEFAHRENZETTELDB		"DBGEFAHRENZETTEL"
 #define GEFAHRENZETTELSYMBOL	"Gefahrenzettel.rcc"
 
