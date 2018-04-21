@@ -33,10 +33,7 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 
 
 	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
-	{
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
-		return;
-	}
 
 	K_Prozess=new QProcess(this);
 	connect(K_Prozess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(ProzessFertig(int,QProcess::ExitStatus)));
@@ -93,11 +90,7 @@ void DlgEditor::on_action_GefahrenzettelLaden_triggered()
 		QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
 		DB.setDatabaseName(txtGefahrenzettel->text());
 		if(!DB.open())
-		{
 			Fehler(trUtf8("Konnte die Gefahentafel DB nicht laden.\n%1").arg(DB.lastError().text()));
-			Tabelle->setModel(Q_NULLPTR);
-			return;
-		}
 		K_Gefahrenzettelmodell=new QSqlTableModel(this,DB);
 		K_Gefahrenzettelmodell->setTable("Zettel");
 		K_Gefahrenzettelmodell->setEditStrategy(QSqlTableModel::OnManualSubmit);
@@ -112,11 +105,7 @@ void DlgEditor::on_action_StoffgruppenLaden_triggered()
 		QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRGUTNUMMERNDB);
 		DB.setDatabaseName(txtGefahrgutnummern->text());
 		if(!DB.open())
-		{
 			Fehler(trUtf8("Konnte die Stoffruppen DB laden.\n%1").arg(DB.lastError().text()));
-			Tabelle->setModel(Q_NULLPTR);
-			return;
-		}
 		K_Gefahrgutnummernmodell=new QSqlTableModel(this,DB);
 		K_Gefahrgutnummernmodell->setTable("Gefahrgutnummern");
 		K_Gefahrgutnummernmodell->setEditStrategy(QSqlTableModel::OnManualSubmit);
@@ -131,11 +120,7 @@ void DlgEditor::on_action_UN_NummernLaden_triggered()
 		QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",UNNUMMERNDB);
 		DB.setDatabaseName(txtUNNummern->text());
 		if(!DB.open())
-		{
 			Fehler(trUtf8("Konnte die UN Nummern DB laden.\n%1").arg(DB.lastError().text()));
-			Tabelle->setModel(Q_NULLPTR);
-			return;
-		}
 		K_UNNummernmodell=new QSqlTableModel(this,DB);
 		K_UNNummernmodell->setTable("UN_Nummern");
 		K_UNNummernmodell->setEditStrategy(QSqlTableModel::OnManualSubmit);
