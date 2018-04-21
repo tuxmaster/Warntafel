@@ -22,6 +22,7 @@ UI_DIR=tmp/ui
 MOC_DIR=tmp/moc
 OBJECTS_DIR=tmp/obj
 RCC_DIR=tmp/rcc
+
 DESTDIR=bin
 
 if (linux-g++) {
@@ -41,6 +42,7 @@ WarntafelDB.commands = ./WarntafelnErstellen.sh
 WarntafelDB.depends = $(TARGET)
 
 QMAKE_EXTRA_TARGETS += Doku GefahrenZettelDB WarntafelDB
+PRE_TARGETDEPS += GefahrenZettelDB WarntafelDB
 
 HEADERS += \
     Quellen/DlgHaupt.h \
@@ -79,3 +81,6 @@ RESOURCES += \
 OTHER_FILES += Gefahrenzettel.qrc \
     Doxyfile \
     Warntafel.desktop
+android {
+    RESOURCES += Gefahrenzettel.qrc
+}
