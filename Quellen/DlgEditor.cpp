@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -16,10 +16,8 @@
 */
 
 #include <QtCore>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-	#include <QWidget>
-	#include <QMessageBox>
-#endif
+#include <QWidget>
+#include <QMessageBox>
 #include <QtGui>
 #include <QtSql>
 
@@ -31,9 +29,8 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 {
 	setupUi(this);
 	Hilfsfunktionen::FensterZentrieren(this);
-#if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
 	Hilfsfunktionen::EditorMitLoeschen(this);
-#endif
+
 
 	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
 	{
@@ -52,14 +49,10 @@ DlgEditor::DlgEditor(QWidget *eltern) :	QMainWindow(eltern)
 	txtUNNummern->setText(QString("%1/%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
 	txtSymboldatei->setText(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(QString(GEFAHRENZETTELSYMBOL).replace(".rcc",".qrc")));
 
-	K_UNNummernmodell=0;
-	K_Gefahrenzettelmodell=0;
-	K_Gefahrgutnummernmodell=0;
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+	K_UNNummernmodell=Q_NULLPTR;
+	K_Gefahrenzettelmodell=Q_NULLPTR;
+	K_Gefahrgutnummernmodell=Q_NULLPTR;
 	Tabelle->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-#else
-	Tabelle->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
-#endif
 }
 void DlgEditor::changeEvent(QEvent *e)
 {
@@ -102,7 +95,7 @@ void DlgEditor::on_action_GefahrenzettelLaden_triggered()
 		if(!DB.open())
 		{
 			Fehler(trUtf8("Konnte die Gefahentafel DB nicht laden.\n%1").arg(DB.lastError().text()));
-			Tabelle->setModel(0);
+			Tabelle->setModel(Q_NULLPTR);
 			return;
 		}
 		K_Gefahrenzettelmodell=new QSqlTableModel(this,DB);
@@ -121,7 +114,7 @@ void DlgEditor::on_action_StoffgruppenLaden_triggered()
 		if(!DB.open())
 		{
 			Fehler(trUtf8("Konnte die Stoffruppen DB laden.\n%1").arg(DB.lastError().text()));
-			Tabelle->setModel(0);
+			Tabelle->setModel(Q_NULLPTR);
 			return;
 		}
 		K_Gefahrgutnummernmodell=new QSqlTableModel(this,DB);
@@ -140,7 +133,7 @@ void DlgEditor::on_action_UN_NummernLaden_triggered()
 		if(!DB.open())
 		{
 			Fehler(trUtf8("Konnte die UN Nummern DB laden.\n%1").arg(DB.lastError().text()));
-			Tabelle->setModel(0);
+			Tabelle->setModel(Q_NULLPTR);
 			return;
 		}
 		K_UNNummernmodell=new QSqlTableModel(this,DB);
@@ -190,7 +183,7 @@ void DlgEditor::closeEvent(QCloseEvent *e)
 }
 void DlgEditor::on_sfZeileEinfuegen_clicked()
 {
-	QSqlTableModel *Modell=(QSqlTableModel*)Tabelle->model();
+	QSqlTableModel *Modell=static_cast<QSqlTableModel*>(Tabelle->model());
 	if(!Modell)
 		return;
 	else
@@ -201,7 +194,7 @@ void DlgEditor::on_sfZeileEinfuegen_clicked()
 }
 void DlgEditor::on_sfZeileLoeschen_clicked()
 {
-	QSqlTableModel *Modell=(QSqlTableModel*)Tabelle->model();
+	QSqlTableModel *Modell=static_cast<QSqlTableModel*>(Tabelle->model());
 	if(!Modell)
 		return;
 	else
@@ -220,10 +213,7 @@ void DlgEditor::on_action_GefahrgutklasseLaden_triggered()
 {
 	QFile Datei(txtSymboldatei->text());
 	if(!Datei.open(QIODevice::ReadOnly))
-	{
 		Fehler(trUtf8("Kann Datei %1 nicht öffnen.\n%2").arg(txtSymboldatei->text()).arg(Datei.errorString()));
-		return;
-	}
 	QTextStream Datenstrom(&Datei);
 	txtSymbole->setPlainText(Datenstrom.readAll());
 	Datei.close();
@@ -232,10 +222,7 @@ void DlgEditor::on_action_GefahrgutklasseSpeichern_triggered()
 {
 	QFile Datei(txtSymboldatei->text());
 	if(!Datei.open(QIODevice::WriteOnly|QIODevice::Truncate))
-	{
 		Fehler(tr("Konnte die Datei %1 nicht schreiben.\n%2").arg(txtSymboldatei->text()).arg(Datei.errorString()));
-		return;
-	}
 	QTextStream Datenstrom(&Datei);
 	Datenstrom<<txtSymbole->toPlainText();
 	Datei.close();

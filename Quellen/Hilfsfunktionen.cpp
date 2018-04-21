@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -16,12 +16,10 @@
 */
 
 #include <QtCore>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-	#include <QWidget>
-	#include <QDesktopWidget>
-	#include <QApplication>
-	#include <QLineEdit>
-#endif
+#include <QWidget>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QLineEdit>
 #include <QtGui>
 
 #include "Hilfsfunktionen.h"
@@ -49,11 +47,10 @@ void Hilfsfunktionen::FensterZentrieren(QMainWindow *fenster)
 	y = (Bildschirmhoehe - Hoehe) / 2;
 	fenster->move ( x, y );
 }
-#if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
 void Hilfsfunktionen::EditorMitLoeschen(QObject *pfad)
 {
 	QList<QLineEdit *> Liste =pfad->findChildren<QLineEdit *>();
-	Q_FOREACH (QLineEdit *Eintrag,Liste)
+	for (QLineEdit *Eintrag : Liste)
 		Eintrag->setClearButtonEnabled(true);
 }
-#endif
+

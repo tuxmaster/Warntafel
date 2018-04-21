@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -16,11 +16,6 @@
 */
 
 #include <QtCore>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-#else
-	#include <QWidget>
-#endif
-
 #include <QtGui>
 #include <QtSql>
 
@@ -30,7 +25,7 @@
 ModellGefahrgutklasse::ModellGefahrgutklasse(QObject *eltern) :QAbstractTableModel(eltern)
 {
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRENZETTELDB);
-	K_SQLDaten=0;
+	K_SQLDaten=Q_NULLPTR;
 	DB.setDatabaseName(QString("%1/%2").arg(GEFAHRENZETTELPFAD).arg(GEFAHRENZETTEL));
 	if(!DB.open())
 	{
@@ -72,7 +67,6 @@ QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 					return Qt::AlignCenter;
 				else
 					return QVariant();
-				break;
 		case Qt::DecorationRole:
 				if(index.column()!=0)
 					return QVariant();
@@ -87,21 +81,16 @@ QVariant ModellGefahrgutklasse::data(const QModelIndex &index, int rolle) const
 					}
 					return Symbol;
 				}
-				break;
 		case Qt::DisplayRole:
 				if (index.column()!=0)
 					return K_SQLDaten->data(index);
 				else
 					return QVariant();
-				break;
 		case Qt::ToolTipRole:
 				return trUtf8("Auf das Symbol doppelt klicken um es zu vergrößern.");
-				break;
 		default:
 			return QVariant();
-				break;
 	}
-	return QVariant();
 }
 QVariant ModellGefahrgutklasse::headerData(int bereich, Qt::Orientation ausrichtung, int rolle) const
 {

@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ class Kennzahltester : public QValidator
 {
 		Q_OBJECT
 	public:
-		Kennzahltester(bool unnummer,QObject* eltern=0);
+		Kennzahltester(bool unnummer,QObject* eltern=Q_NULLPTR);
 		QValidator::State validate(QString &eingabe, int &) const;
 
 	Q_SIGNALS:

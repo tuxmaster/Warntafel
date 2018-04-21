@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -26,14 +26,14 @@ class DlgGefahrensymbol : public QDialog, private Ui::DlgGefahrensymbol
 		Q_OBJECT
 
 	public:
-		explicit	DlgGefahrensymbol(QWidget *eltern = 0);
+		explicit	DlgGefahrensymbol(QWidget *eltern = Q_NULLPTR);
 		void		SymbolSetzen(const QString &dateiname);
 
 	private:
 		QSvgWidget	*K_Symbolanzeige;
 
 	protected:
-		void		changeEvent(QEvent *e);
+		void		changeEvent(QEvent *e) Q_DECL_OVERRIDE;
 };
 
 #endif // DLGGEFAHRENSYMBOL_H

@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 		Q_OBJECT
 
 	public:
-		explicit			DlgEditor(QWidget *eltern = 0);
+		explicit			DlgEditor(QWidget *eltern = Q_NULLPTR);
 
 	private:
 
@@ -41,7 +41,7 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 		QProcess*			K_Prozess;
 
 	private Q_SLOTS:
-		void				Fehler(const QString &fehler);
+		void				Fehler(const QString &fehler) __attribute__ ((noreturn));
 
 		void				on_sfGefahrenzettelpfad_clicked();
 		void				on_sfGefahrgutnummernpfad_clicked();
@@ -69,8 +69,8 @@ class DlgEditor : public QMainWindow, private Ui::DlgEditor
 		void				ProzessFertig(int rueckgabe, QProcess::ExitStatus);
 
 	protected:
-		void				changeEvent(QEvent *e);
-		void				closeEvent (QCloseEvent *e);
+		void				changeEvent(QEvent *e) Q_DECL_OVERRIDE;
+		void				closeEvent (QCloseEvent *e) Q_DECL_OVERRIDE;
 };
 
 #endif // DLGEDITOR_H

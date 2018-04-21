@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 {
 		Q_OBJECT
 	public:
-		explicit	DlgHaupt(QWidget *eltern = 0);
+		explicit	DlgHaupt(QWidget *eltern = Q_NULLPTR);
 
 	private Q_SLOTS:
 		void					on_sfInfo_clicked();
@@ -45,12 +45,12 @@ class DlgHaupt : public QMainWindow, private Ui::Hauptfenster
 		DlgWarntafelAnzeigen	*K_TafelZeigen;
 
 	private Q_SLOTS:
-		void					Fehler(const QString &fehler);
+		void					Fehler(const QString &fehler) __attribute__ ((noreturn));
 		void					GefahrenzettelSymbolAnzeige(const QModelIndex &welches);
 		void					TafelAusgefuellt(const QString &gefahr,const QString &stoff);
 
 	protected:
-		void					changeEvent(QEvent *e);
+		void					changeEvent(QEvent *e) Q_DECL_OVERRIDE;
 };
 
 #endif // DLGHAUPT_H

@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -25,16 +25,9 @@ class Hilfsfunktionen : public QObject
 {
 		Q_OBJECT
 	public:
-		explicit Hilfsfunktionen(QObject *eltern = 0);
+		explicit Hilfsfunktionen(QObject *eltern = Q_NULLPTR);
 		static void FensterZentrieren(QMainWindow *fenster);
-#if QT_VERSION >= QT_VERSION_CHECK(5,2,0)
 		static void EditorMitLoeschen(QObject *pfad);
-#endif
-
-	signals:
-
-	public slots:
-
 };
 
 #endif // HILFSFUNKTIONEN_H

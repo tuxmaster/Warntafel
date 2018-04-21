@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -16,10 +16,8 @@
 */
 
 #include <QtCore>
-#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
-	#include <QWidget>
-	#include <QMessageBox>
-#endif
+#include <QWidget>
+#include <QMessageBox>
 #include <QtGui>
 #include <QtSql>
 
@@ -37,23 +35,16 @@ DlgHaupt::DlgHaupt(QWidget *eltern) :QMainWindow(eltern)
 	Hilfsfunktionen::FensterZentrieren(this);
 	// Wenn kein SQlite da ist, braucht man nicht weitermachen
 	if(!QSqlDatabase::isDriverAvailable("QSQLITE"))
-	{
 		Fehler(trUtf8("Das Qt SQLite Modul ist nicht verfügbar. Ohne dieses ist ein Start nicht möglich."));
-		return;
-	}
 	if((!GefahenkennzahlenLaden()) || (!UNNummerLaden()))
 		return;
 	K_SymbolAnzeigen=new DlgGefahrensymbol(this);
 	K_Gefahrgutklassemodell=new ModellGefahrgutklasse(this);
 	connect(K_Gefahrgutklassemodell,SIGNAL(Fehler(QString)),this,SLOT(Fehler(QString)));
 	tbGefahrenzettel->setModel(K_Gefahrgutklassemodell);
-#if QT_VERSION < QT_VERSION_CHECK(5,0,0)
-	tbGefahrenzettel->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);
-	tbGefahrenzettel->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
-#else
 	tbGefahrenzettel->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	tbGefahrenzettel->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-#endif
+
 	connect(tbGefahrenzettel,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(GefahrenzettelSymbolAnzeige(QModelIndex)));
 
 	K_Warntafel=new DlgWarntafel(this);
@@ -125,10 +116,7 @@ bool DlgHaupt::GefahenkennzahlenLaden()
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",GEFAHRGUTNUMMERNDB);
 	DB.setDatabaseName(QString("%1/%2").arg(GEFAHRGUTNUMMERNPFAD).arg(GEFAHRGUTNUMMERN));
 	if(!DB.open())
-	{
 		Fehler(trUtf8("Konnte die Gefahrennummern nicht laden.\n%1").arg(DB.lastError().text()));
-		return false;
-	}
 	return true;
 }
 bool DlgHaupt::UNNummerLaden()
@@ -136,9 +124,6 @@ bool DlgHaupt::UNNummerLaden()
 	QSqlDatabase DB = QSqlDatabase::addDatabase("QSQLITE",UNNUMMERNDB);
 	DB.setDatabaseName(QString("%1/%2").arg(UNNUMMERNPFAD).arg(UNNUMMERN));
 	if(!DB.open())
-	{
 		Fehler(trUtf8("Konnte die UN Nummern nicht laden.\n%1").arg(DB.lastError().text()));
-		return false;
-	}
 	return true;
 }

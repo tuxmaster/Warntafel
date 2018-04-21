@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ class ModellGefahrgutklasse : public QAbstractTableModel
 {
 		Q_OBJECT
 	public:
-		explicit		ModellGefahrgutklasse(QObject *eltern = 0);
+		explicit		ModellGefahrgutklasse(QObject *eltern = Q_NULLPTR);
 		int				rowCount(const QModelIndex &) const ;
 		int				columnCount(const QModelIndex &) const{return 3;}
 		QVariant		data(const QModelIndex &index, int rolle) const;

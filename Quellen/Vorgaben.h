@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 #define VORGABEN_H
 
 #define PROGRAMM				"Warntafel"
-#define VERSION					"0.0.3"
+#define VERSION					"0.0.4"
 #define BILDPUFFER_KB			102400
 
 #define GEFAHRENZETTEL			"Gefahrenzettel.dat"

@@ -1,4 +1,4 @@
-#    Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+#    Copyright (C) 2013-2018 Frank Büttner tuxmaster@users.noreply.github.com
 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -13,17 +13,23 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-QT      += core gui network sql svg
+QT      += core gui sql svg widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-CONFIG  += warn_on
+CONFIG  += warn_on c++14
 
 TARGET = Warntafel
 UI_DIR=tmp/ui
 MOC_DIR=tmp/moc
 OBJECTS_DIR=tmp/obj
 RCC_DIR=tmp/rcc
+DESTDIR=bin
+
+if (linux-g++) {
+    QMAKE_LFLAGS += -fuse-ld=gold
+}
+if (linux-clang) {
+    QMAKE_LFLAGS += -flto
+}
 
 Doku.commands = doxygen
 Doku.depends = $(TARGET)

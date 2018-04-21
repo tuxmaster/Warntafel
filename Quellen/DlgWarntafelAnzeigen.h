@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -25,11 +25,11 @@ class DlgWarntafelAnzeigen : public QDialog, private Ui::DlgWarntafelAnzeigen
 		Q_OBJECT
 
 	public:
-		explicit DlgWarntafelAnzeigen(QWidget *eltern = 0);
+		explicit DlgWarntafelAnzeigen(QWidget *eltern = Q_NULLPTR);
 		void TextSetzen(const QString &gefahr,const QString &stoff);
 
 	protected:
-		void changeEvent(QEvent *e);
+		void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
 };
 
 #endif // DLGWARNTAFELANZEIGEN_H

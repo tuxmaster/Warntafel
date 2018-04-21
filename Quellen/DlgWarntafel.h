@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2013-2014 Frank Büttner frank-buettner@gmx.net
+	Copyright (C) 2013-2018 Frank Büttner frank-buettner@gmx.net
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
 		Q_OBJECT
 
 	public:
-		explicit				DlgWarntafel(QWidget *eltern = 0);
+		explicit				DlgWarntafel(QWidget *eltern = Q_NULLPTR);
 
 	Q_SIGNALS:
 		void					DatenStimmig(const QString &gefahr,const QString &stoff);
@@ -40,7 +40,7 @@ class DlgWarntafel : public QWidget, private Ui::DlgWarntafel
 		void					Fehler(const QString &fehler);
 
 	protected:
-		void					changeEvent(QEvent *e);
+		void					changeEvent(QEvent *e) Q_DECL_OVERRIDE;
 };
 
 #endif // DLGWARNTAFEL_H
